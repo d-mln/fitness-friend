@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ExerciseSceneController">
+   <children>
+      <HBox prefHeight="40.0" prefWidth="600.0">
+         <children>
+            <Label text="This is what I expect to do every week">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Label minHeight="17.0" minWidth="71.0" text="Walking">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="exerciseWalkingField">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label fx:id="walkingUnitField" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Label minHeight="17.0" minWidth="71.0" text="Running">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="exerciseRunningField">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label fx:id="runningUnitField" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Label minHeight="17.0" minWidth="71.0" text="Biking">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="exerciseBikingField">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label fx:id="bikingUnitField" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Label minHeight="17.0" minWidth="71.0" text="Swimming">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="exerciseWorkingOutField">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label fx:id="swimmingUnitField" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Label minHeight="17.0" minWidth="71.0" prefHeight="17.0" prefWidth="72.0" text="Working out">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField>
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label text="Minutes">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="exerciseSaveAndReturn" mnemonicParsing="false" onAction="#saveAndReturnPressed" text="Save &amp; Return">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="exerciseReturnWOSaving" mnemonicParsing="false" onAction="#returnWOSavingPressed" text="Return without saving">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
