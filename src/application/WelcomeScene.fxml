@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WelcomeSceneController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="100.0" text="Fitness Friend">
+               <HBox.margin>
+                  <Insets left="150.0" right="150.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="75.0" prefWidth="400.0">
+         <children>
+            <Button fx:id="oldProfileButton" mnemonicParsing="false" onAction="#loadProfile" prefHeight="50.0" prefWidth="100.0" text="Existing profile">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="newProfileButton" mnemonicParsing="false" onAction="#createProfile" prefHeight="50.0" prefWidth="100.0" text="New profile" />
+         </children>
+      </HBox>
+      <HBox prefHeight="63.0" prefWidth="400.0">
+         <children>
+            <Button fx:id="guestProfileButton" mnemonicParsing="false" onAction="#bypassLogin" prefHeight="25.0" prefWidth="100.0" text="Guest profile">
+               <HBox.margin>
+                  <Insets left="150.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
