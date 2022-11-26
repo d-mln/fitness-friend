@@ -13,7 +13,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/application/WelcomeScene.fxml"));
+			VBox root = loader.load(new FileInputStream("src/application/scenes/WelcomeScene.fxml"));
 			
 			Scene scene = new Scene(root,400,200);
 			

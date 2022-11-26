@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="162.0" minWidth="600.0" prefHeight="162.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
+   <children>
+      <HBox prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <HBox minHeight="38.0" minWidth="507.0" prefHeight="38.0" prefWidth="507.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="125.0" text="Welcome! It has been">
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="timeSinceLoginField" minWidth="20.0" text="NO_DATE">
+                     <padding>
+                        <Insets left="5.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="195.0" text="since you last updated your profile.">
+                     <HBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox minHeight="38.0" minWidth="91.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="38.0" prefWidth="91.0">
+               <children>
+                  <Button fx:id="settingsButton" alignment="CENTER" mnemonicParsing="false" onAction="#settingsPressed" prefHeight="25.0" prefWidth="83.0" text="Settings">
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="28.0" prefWidth="600.0">
+         <children>
+            <Label text="You are currently">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="ageTextField" minWidth="10.0" text="NO_AGE">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="and as of your last update, you weighed">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label minWidth="10.0" text="NO_WEIGHT">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="unitLabel" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="31.0" prefWidth="600.0">
+         <children>
+            <Label text="I want to...">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="38.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="weightSceneButton" mnemonicParsing="false" onAction="#weightButtonPressed" text="Input my weight">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="exerciseSceneButton" mnemonicParsing="false" onAction="#exerciseButtonPressed" text="Update my exercise" />
+            <Button fx:id="predictSceneButton" mnemonicParsing="false" onAction="#predictButtonPressed" text="Predict my weight loss" />
+            <Button fx:id="historySceneButton" mnemonicParsing="false" onAction="#historyButtonPressed" text="View my history" />
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="54.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#saveAndQuit" text="Save &amp; Quit">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
