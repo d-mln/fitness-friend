@@ -14,7 +14,8 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/scenes/WelcomeScene.fxml"));
-			
+			WelcomeSceneController controller = (WelcomeSceneController)loader.getController();
+			controller.welcomeStage = primaryStage;
 			Scene scene = new Scene(root,400,200);
 			
 			primaryStage.setTitle("Fitness Friend");
