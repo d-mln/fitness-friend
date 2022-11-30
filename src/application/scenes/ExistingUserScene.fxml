@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ExistingUserSceneController">
+   <children>
+      <HBox prefHeight="49.0" prefWidth="429.0">
+         <children>
+            <Label text="Choose from an existing account">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="accountChoiceBox" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="360.0">
+         <children>
+            <Button fx:id="existingUserReturnButton" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#existingUserReturnPressed" prefHeight="25.0" prefWidth="70.0" text="Return">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="existingUserContinueButton" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#existingUserContinuePressed" prefHeight="25.0" prefWidth="70.0" text="Continue">
+               <HBox.margin>
+                  <Insets left="190.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -54,7 +54,22 @@ public class SettingsSceneController {
 
     @FXML
     void savePressed(ActionEvent event) {
-
+		Stage mainStage = new Stage();
+    	try {
+			FXMLLoader loader = new FXMLLoader();
+			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
+			MainSceneController controller = (MainSceneController)loader.getController();
+			controller.mainStage = mainStage;
+			Scene scene = new Scene(root,600,180);
+			
+			mainStage.setTitle("Fitness Friend");
+			mainStage.setResizable(false);
+			mainStage.setScene(scene);
+			mainStage.show();
+			settingsStage.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
     }
 
 }
