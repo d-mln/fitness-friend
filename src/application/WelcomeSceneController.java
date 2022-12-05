@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 public class WelcomeSceneController {
 	Stage welcomeStage;
-	
+
     @FXML
     private Button newProfileButton;
 
@@ -30,7 +30,7 @@ public class WelcomeSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/NewUserScene.fxml"));
 			NewUserSceneController controller = (NewUserSceneController)loader.getController();
 			controller.newUserStage = newUserStage;
-			Scene scene = new Scene(root,600,180);
+			Scene scene = new Scene(root,500,300);
 			
 			newUserStage.setTitle("Fitness Friend");
 			newUserStage.setResizable(false);

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewUserSceneTwoController">
+   <children>
+      <HBox prefHeight="37.0" prefWidth="452.0">
+         <children>
+            <Label text="I am">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="newUserHeightInput">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label fx:id="newUserHeightUnitLabel" text="MEASUREMENT_UNSELECTED">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="tall">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="40.0" prefWidth="452.0">
+         <children>
+            <Label text="I am a">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ChoiceBox fx:id="newUserGenderChoiceBox" prefWidth="150.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Man" />
+                     <String fx:value="Woman" />
+                     <String fx:value="Somewhere inbetween" />
+                  </FXCollections>
+               </items>
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="38.0" prefWidth="452.0">
+         <children>
+            <Label text="I currently weigh">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="newUserWeightInput">
+               <HBox.margin>
+                  <Insets left="10.0" top="6.0" />
+               </HBox.margin>
+            </TextField>
+            <Label fx:id="newUserWeightUnitLabel" text="MEASUREMENT_UNSELECTED">
+               <HBox.margin>
+                  <Insets left="6.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="26.0" prefWidth="277.0">
+         <children>
+            <Button fx:id="newUserReturnButton" minWidth="70.0" mnemonicParsing="false" onAction="#newUserReturnButtonPressed" prefHeight="25.0" prefWidth="70.0" text="Return">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" top="6.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="newUserFinishButton" minWidth="120.0" mnemonicParsing="false" onAction="#newUserFinishButtonPressed" prefHeight="25.0" prefWidth="120.0" text="Finish Creating">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="70.0" top="6.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
