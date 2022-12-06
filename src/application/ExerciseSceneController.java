@@ -1,6 +1,7 @@
 package application;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +25,9 @@ public class ExerciseSceneController {
 
     @FXML
     private Button exerciseReturnWOSaving;
+    
+    @FXML
+    private TextField exerciseSwimmingField;
 
     @FXML
     private TextField exerciseRunningField;
@@ -70,7 +74,18 @@ public class ExerciseSceneController {
 
     @FXML
     void saveAndReturnPressed(ActionEvent event) {
-		Stage mainStage = new Stage();
+		currentProfile.setBiking(Double.parseDouble(exerciseBikingField.getText()));
+		currentProfile.setRunning(Double.parseDouble(exerciseRunningField.getText()));
+		currentProfile.setWalking(Double.parseDouble(exerciseWalkingField.getText()));
+		currentProfile.setWorkout(Integer.parseInt(exerciseWorkingOutField.getText()));
+		currentProfile.setSwimming(Integer.parseInt(exerciseSwimmingField.getText()));
+    	try {
+			currentProfile.saveProfile();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+    	
+    	Stage mainStage = new Stage();
     	try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));

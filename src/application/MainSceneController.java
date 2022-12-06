@@ -158,11 +158,11 @@ public class MainSceneController {
 
 	public void setLabels(String i) {
 		ageTextField.setText(Integer.toString(currentProfile.getAge()));
-		weightLabel.setText(Double.toString(currentProfile.getWeight()));
+		weightLabel.setText(String.format("%.2f", currentProfile.getWeight()));
 		if (currentProfile.getUnit() == "Metric") {
-			unitLabel.setText("kg");
+			unitLabel.setText("kilograms");
 		} else {
-			unitLabel.setText("lb");
+			unitLabel.setText("pounds");
 		}
 	}
 }

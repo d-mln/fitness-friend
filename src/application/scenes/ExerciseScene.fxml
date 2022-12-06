@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="272.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ExerciseSceneController">
    <children>
       <HBox prefHeight="40.0" prefWidth="600.0">
@@ -83,7 +82,7 @@
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="exerciseWorkingOutField">
+            <TextField fx:id="exerciseSwimmingField">
                <HBox.margin>
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>
@@ -102,7 +101,7 @@
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <TextField>
+            <TextField fx:id="exerciseWorkingOutField">
                <HBox.margin>
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>

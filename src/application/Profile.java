@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 public class Profile {
 	private String name = "n/a";
@@ -15,6 +16,13 @@ public class Profile {
 	private String gender = "n/a";
 	private double weight = 0.0;
 	private double height = 0.0;
+	private Date date = new Date();
+	
+	private double walking = 0.0;
+	private double running = 0.0;
+	private double biking = 0.0;
+	private int swimming = 0;
+	private int workout = 0;
 	
 	// if profile already exists, load, else create a new profile
 	public Profile(String i) {
@@ -50,6 +58,13 @@ public class Profile {
 		pwriter.println(gender);
 		pwriter.println(weight);
 		pwriter.println(height);
+		pwriter.println(date.getTime());
+		pwriter.println(walking);
+		pwriter.println(running);
+		pwriter.println(biking);
+		pwriter.println(swimming);
+		pwriter.println(workout);
+
 		pwriter.close();
 	}
 	
@@ -62,6 +77,13 @@ public class Profile {
 		gender = reader.readLine();
 		weight = Double.parseDouble(reader.readLine());
 		height = Double.parseDouble(reader.readLine());
+		date = new Date(Long.parseLong(reader.readLine()));
+		walking = Double.parseDouble(reader.readLine());
+		running = Double.parseDouble(reader.readLine());
+		biking = Double.parseDouble(reader.readLine());
+		swimming = Integer.parseInt(reader.readLine());
+		workout = Integer.parseInt(reader.readLine());
+		
 		reader.close();
 	}
 
@@ -111,5 +133,53 @@ public class Profile {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	public void setDate(Date i) {
+		this.date = i;
+	}
+
+	public double getWalking() {
+		return walking;
+	}
+
+	public void setWalking(double walking) {
+		this.walking = walking;
+	}
+
+	public double getRunning() {
+		return running;
+	}
+
+	public void setRunning(double running) {
+		this.running = running;
+	}
+
+	public double getBiking() {
+		return biking;
+	}
+
+	public void setBiking(double biking) {
+		this.biking = biking;
+	}
+
+	public double getSwimming() {
+		return swimming;
+	}
+
+	public void setSwimming(int swimming) {
+		this.swimming = swimming;
+	}
+
+	public double getWorkout() {
+		return workout;
+	}
+
+	public void setWorkout(int workout) {
+		this.workout = workout;
 	}
 }
