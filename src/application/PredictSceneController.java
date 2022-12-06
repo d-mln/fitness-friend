@@ -36,6 +36,7 @@ public class PredictSceneController {
 			MainSceneController controller = (MainSceneController)loader.getController();
 			controller.mainStage = mainStage;
 			controller.setCurrentProfile(currentProfile);
+			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
 			mainStage.setTitle("Fitness Friend: " + currentProfile.getName());

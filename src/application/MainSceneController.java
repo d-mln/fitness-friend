@@ -29,9 +29,6 @@ public class MainSceneController {
     private Button predictSceneButton;
 
     @FXML
-    private Button quitButton;
-
-    @FXML
     private Label weightLabel;
     
     @FXML
@@ -151,10 +148,6 @@ public class MainSceneController {
     	}
     }
     
-    @FXML
-    void saveAndQuit(ActionEvent event) {
-    	mainStage.close();
-    }
 
 	public void setCurrentProfile(Profile i) {
 		currentProfile = i;
