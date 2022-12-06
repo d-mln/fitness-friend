@@ -52,12 +52,12 @@
                   <Insets left="5.0" top="5.0" />
                </HBox.margin>
             </Label>
-            <Label text="and as of your last update, you weighed">
+            <Label text="years old and as of your last update, you weighed">
                <HBox.margin>
                   <Insets left="5.0" top="5.0" />
                </HBox.margin>
             </Label>
-            <Label minWidth="10.0" text="NO_WEIGHT">
+            <Label fx:id="weightLabel" minWidth="10.0" text="NO_WEIGHT">
                <HBox.margin>
                   <Insets left="5.0" top="5.0" />
                </HBox.margin>

@@ -12,8 +12,9 @@ import javafx.stage.Stage;
 
 public class PredictSceneController {
 	protected Stage predictStage;
-	
-    @FXML
+	private Profile currentProfile;
+    
+	@FXML
     private Button predictCalculateButton;
 
     @FXML
@@ -34,9 +35,10 @@ public class PredictSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
 			MainSceneController controller = (MainSceneController)loader.getController();
 			controller.mainStage = mainStage;
+			controller.setCurrentProfile(currentProfile);
 			Scene scene = new Scene(root,600,180);
 			
-			mainStage.setTitle("Fitness Friend");
+			mainStage.setTitle("Fitness Friend: " + currentProfile.getName());
 			mainStage.setResizable(false);
 			mainStage.setScene(scene);
 			mainStage.show();
@@ -46,4 +48,7 @@ public class PredictSceneController {
 		}
     }
 
+	public void setCurrentProfile(Profile i) {
+		currentProfile = i;
+	}
 }

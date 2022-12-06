@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 public class HistorySceneController {
 	protected Stage historyStage;
+	private Profile currentProfile;
     @FXML
     private Button historyReturnButton;
 	
@@ -24,6 +25,8 @@ public class HistorySceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
 			MainSceneController controller = (MainSceneController)loader.getController();
 			controller.mainStage = mainStage;
+			controller.setCurrentProfile(currentProfile);
+			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
 			mainStage.setTitle("Fitness Friend");
@@ -35,5 +38,10 @@ public class HistorySceneController {
 			e.printStackTrace();
 		}
     }
+
+
+	public void setCurrentProfile(Profile i) {
+		currentProfile = i;
+	}
 
 }

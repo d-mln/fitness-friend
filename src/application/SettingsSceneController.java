@@ -1,6 +1,7 @@
 package application;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,11 +15,12 @@ import javafx.stage.Stage;
 
 public class SettingsSceneController {
 	protected Stage settingsStage;
+	private Profile currentProfile;
     @FXML
     private TextField settingsAgeInput;
 
     @FXML
-    private ChoiceBox<?> settingsGenderInput;
+    private ChoiceBox<String> settingsGenderInput;
 
     @FXML
     private TextField settingsHeightInput;
@@ -27,10 +29,19 @@ public class SettingsSceneController {
     private Button settingsReturnWOSaving;
 
     @FXML
-    private Button settingsSaveButton;
+    private Button settingsSaveAge;
 
     @FXML
-    private ChoiceBox<?> settingsUnitInput;
+    private Button settingsSaveGender;
+
+    @FXML
+    private Button settingsSaveHeight;
+
+    @FXML
+    private Button settingsSaveUnit;
+
+    @FXML
+    private ChoiceBox<String> settingsUnitInput;
 
     @FXML
     void returnWOSavingPressed(ActionEvent event) {
@@ -40,9 +51,10 @@ public class SettingsSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
 			MainSceneController controller = (MainSceneController)loader.getController();
 			controller.mainStage = mainStage;
+			controller.setCurrentProfile(currentProfile);
 			Scene scene = new Scene(root,600,180);
 			
-			mainStage.setTitle("Fitness Friend");
+			mainStage.setTitle("Fitness Friend: " + currentProfile.getName());
 			mainStage.setResizable(false);
 			mainStage.setScene(scene);
 			mainStage.show();
@@ -53,23 +65,47 @@ public class SettingsSceneController {
     }
 
     @FXML
-    void savePressed(ActionEvent event) {
-		Stage mainStage = new Stage();
+    void saveAge(ActionEvent event) {
+    	currentProfile.setAge(Integer.parseInt(settingsAgeInput.getText()));
     	try {
-			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
-			MainSceneController controller = (MainSceneController)loader.getController();
-			controller.mainStage = mainStage;
-			Scene scene = new Scene(root,600,180);
-			
-			mainStage.setTitle("Fitness Friend");
-			mainStage.setResizable(false);
-			mainStage.setScene(scene);
-			mainStage.show();
-			settingsStage.close();
-		} catch(Exception e) {
+			currentProfile.saveProfile();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
     }
+
+    @FXML
+    void saveGender(ActionEvent event) {
+    	currentProfile.setGender(settingsGenderInput.getValue());
+    	try {
+			currentProfile.saveProfile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    void saveHeight(ActionEvent event) {
+    	currentProfile.setHeight(Double.parseDouble(settingsHeightInput.getText()));
+    	try {
+			currentProfile.saveProfile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+    @FXML
+    void saveUnit(ActionEvent event) {
+    	currentProfile.setUnit(settingsUnitInput.getValue());
+    	try {
+			currentProfile.saveProfile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+
+	public void setCurrentProfile(Profile i) {
+		currentProfile = i;
+	}
 
 }

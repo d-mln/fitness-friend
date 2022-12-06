@@ -31,14 +31,5 @@
             <Button fx:id="newProfileButton" mnemonicParsing="false" onAction="#createProfile" prefHeight="50.0" prefWidth="100.0" text="New profile" />
          </children>
       </HBox>
-      <HBox prefHeight="63.0" prefWidth="400.0">
-         <children>
-            <Button fx:id="guestProfileButton" mnemonicParsing="false" onAction="#bypassLogin" prefHeight="25.0" prefWidth="100.0" text="Guest profile">
-               <HBox.margin>
-                  <Insets left="150.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
    </children>
 </VBox>

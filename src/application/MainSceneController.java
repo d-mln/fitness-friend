@@ -12,7 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainSceneController {
+	
 	protected Stage mainStage;
+	private Profile currentProfile;
 	
     @FXML
     private Label ageTextField;
@@ -29,6 +31,9 @@ public class MainSceneController {
     @FXML
     private Button quitButton;
 
+    @FXML
+    private Label weightLabel;
+    
     @FXML
     private Button settingsButton;
 
@@ -49,9 +54,10 @@ public class MainSceneController {
     		VBox root = loader.load(new FileInputStream("src/application/scenes/ExerciseScene.fxml"));
     		ExerciseSceneController controller = (ExerciseSceneController)loader.getController();
     		controller.exerciseStage = exerciseStage;
+    		controller.setCurrentProfile(currentProfile);
     		Scene scene = new Scene(root,400,400);
     		
-    		exerciseStage.setTitle("Fitness Friend: Exercises");
+    		exerciseStage.setTitle("Fitness Friend: Exercises: " + currentProfile.getName());
     		exerciseStage.setScene(scene);
     		exerciseStage.setResizable(false);
     		exerciseStage.show();
@@ -69,9 +75,10 @@ public class MainSceneController {
     		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryScene.fxml"));
     		HistorySceneController controller = (HistorySceneController)loader.getController();
     		controller.historyStage = historyStage;
+    		controller.setCurrentProfile(currentProfile);
     		Scene scene = new Scene(root,400,400);
     		
-    		historyStage.setTitle("Fitness Friend: History");
+    		historyStage.setTitle("Fitness Friend: History: " + currentProfile.getName());
     		historyStage.setResizable(false);
     		historyStage.setScene(scene);
     		historyStage.show();
@@ -89,9 +96,10 @@ public class MainSceneController {
     		VBox root = loader.load(new FileInputStream("src/application/scenes/PredictScene.fxml"));
     		PredictSceneController controller = (PredictSceneController)loader.getController();
     		controller.predictStage = predictStage;
+    		controller.setCurrentProfile(currentProfile);
     		Scene scene = new Scene(root,400,400);
     		
-    		predictStage.setTitle("Fitness Friend: Prediction");
+    		predictStage.setTitle("Fitness Friend: Prediction: " + currentProfile.getName());
     		predictStage.setResizable(false);
     		predictStage.setScene(scene);
     		predictStage.show();
@@ -109,9 +117,10 @@ public class MainSceneController {
     		VBox root = loader.load(new FileInputStream("src/application/scenes/SettingsScene.fxml"));
     		SettingsSceneController controller = (SettingsSceneController)loader.getController();
     		controller.settingsStage = settingsStage;
+    		controller.setCurrentProfile(currentProfile);
     		Scene scene = new Scene(root,400,400);
     		
-    		settingsStage.setTitle("Fitness Friend: Settings");
+    		settingsStage.setTitle("Fitness Friend: Settings: " + currentProfile.getName());
     		settingsStage.setResizable(false);
     		settingsStage.setScene(scene);
     		settingsStage.show();
@@ -129,9 +138,10 @@ public class MainSceneController {
     		VBox root = loader.load(new FileInputStream("src/application/scenes/WeightScene.fxml"));
     		WeightSceneController controller = (WeightSceneController)loader.getController();
     		controller.weightStage = weightStage;
+    		controller.setCurrentProfile(currentProfile);
     		Scene scene = new Scene(root,400,400);
     		
-    		weightStage.setTitle("Fitness Friend: My Weight");
+    		weightStage.setTitle("Fitness Friend: My Weight: " + currentProfile.getName());
     		weightStage.setResizable(false);
     		weightStage.setScene(scene);
     		weightStage.show();
@@ -145,4 +155,18 @@ public class MainSceneController {
     void saveAndQuit(ActionEvent event) {
     	mainStage.close();
     }
+
+	public void setCurrentProfile(Profile i) {
+		currentProfile = i;
+	}
+
+	public void setLabels(String i) {
+		ageTextField.setText(Integer.toString(currentProfile.getAge()));
+		weightLabel.setText(Double.toString(currentProfile.getWeight()));
+		if (currentProfile.getUnit() == "Metric") {
+			unitLabel.setText("kgs");
+		} else {
+			unitLabel.setText("lbs");
+		}
+	}
 }

@@ -12,15 +12,13 @@ import javafx.stage.Stage;
 
 public class WelcomeSceneController {
 	Stage welcomeStage;
-
+	
+	
     @FXML
     private Button newProfileButton;
 
     @FXML
     private Button oldProfileButton;
-    
-    @FXML
-    private Button guestProfileButton;
 
     @FXML
     void createProfile(ActionEvent event) {
@@ -50,32 +48,13 @@ public class WelcomeSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/ExistingUserScene.fxml"));
 			ExistingUserSceneController controller = (ExistingUserSceneController)loader.getController();
 			controller.existingUserStage = existingUserStage;
+			controller.addExistingProfiles();
 			Scene scene = new Scene(root,600,180);
 			
 			existingUserStage.setTitle("Fitness Friend");
 			existingUserStage.setResizable(false);
 			existingUserStage.setScene(scene);
 			existingUserStage.show();
-			welcomeStage.close();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-    }
-    
-    @FXML
-    void bypassLogin(ActionEvent event) {
-		Stage mainStage = new Stage();
-    	try {
-			FXMLLoader loader = new FXMLLoader();
-			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
-			MainSceneController controller = (MainSceneController)loader.getController();
-			controller.mainStage = mainStage;
-			Scene scene = new Scene(root,600,180);
-			
-			mainStage.setTitle("Fitness Friend");
-			mainStage.setResizable(false);
-			mainStage.setScene(scene);
-			mainStage.show();
 			welcomeStage.close();
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -1,7 +1,9 @@
 package application;
 
+import java.io.File;
 import java.io.FileInputStream;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +15,10 @@ import javafx.stage.Stage;
 
 public class ExistingUserSceneController {
 	protected Stage existingUserStage;
-	
-    @FXML
-    private ChoiceBox<?> accountChoiceBox;
+	private Profile currentProfile;
+    
+	@FXML
+    private ChoiceBox<String> accountChoiceBox;
 
     @FXML
     private Button existingUserContinueButton;
@@ -25,17 +28,27 @@ public class ExistingUserSceneController {
 
     @FXML
     void existingUserContinuePressed(ActionEvent event) {
-		
+		// load profile selected
+    	currentProfile = new Profile(accountChoiceBox.getValue());
     	
+    	
+    	System.out.println(currentProfile.getName());
+    	System.out.println(currentProfile.getUnit());
+    	System.out.println(currentProfile.getWeight());
+    	System.out.println(currentProfile.getAge());
+    	System.out.println(currentProfile.getGender());
+    	System.out.println(currentProfile.getHeight());
     	Stage mainStage = new Stage();
     	try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
 			MainSceneController controller = (MainSceneController)loader.getController();
 			controller.mainStage = mainStage;
+			controller.setCurrentProfile(currentProfile);
+			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
-			mainStage.setTitle("Fitness Friend");
+			mainStage.setTitle("Fitness Friend: " + currentProfile.getName());
 			mainStage.setResizable(false);
 			mainStage.setScene(scene);
 			mainStage.show();
@@ -65,4 +78,11 @@ public class ExistingUserSceneController {
 		}
     }
 
+	public void addExistingProfiles() {
+		File dirPath = new File("src/application/profiles");
+		
+		// https://stackoverflow.com/questions/36629522/convert-arraylist-to-observable-list-for-javafx-program
+		ObservableList<String> profilesList = FXCollections.observableArrayList(dirPath.list());
+		accountChoiceBox.setItems(profilesList);
+	}
 }

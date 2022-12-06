@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 public class ExerciseSceneController {
 	protected Stage exerciseStage;
+	private Profile currentProfile;
 
     @FXML
     private Label bikingUnitField;
@@ -53,6 +54,8 @@ public class ExerciseSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
 			MainSceneController controller = (MainSceneController)loader.getController();
 			controller.mainStage = mainStage;
+			controller.setCurrentProfile(currentProfile);
+			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
 			mainStage.setTitle("Fitness Friend");
@@ -73,6 +76,8 @@ public class ExerciseSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/MainScene.fxml"));
 			MainSceneController controller = (MainSceneController)loader.getController();
 			controller.mainStage = mainStage;
+			controller.setCurrentProfile(currentProfile);
+			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
 			mainStage.setTitle("Fitness Friend");
@@ -84,5 +89,9 @@ public class ExerciseSceneController {
 			e.printStackTrace();
 		}
     }
+
+	public void setCurrentProfile(Profile i) {
+		currentProfile = i;
+	}
 
 }

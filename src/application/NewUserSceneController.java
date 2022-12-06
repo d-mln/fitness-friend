@@ -15,8 +15,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class NewUserSceneController {
+	
 	protected Stage newUserStage;
-
+	private Profile currentProfile;
+	
     @FXML
     private ChoiceBox<String> measurementSystemChoiceBox;
 
@@ -34,12 +36,14 @@ public class NewUserSceneController {
     	// create profiles directory if it doesn't already exist    	
     	new File("src/application/profiles").mkdirs();
     	
-    	Profile currentUser = new Profile(newUserProfileNameInput.getText());
+    	currentProfile = new Profile(newUserProfileNameInput.getText());
+    	currentProfile.setName(newUserProfileNameInput.getText());
+    	currentProfile.setUnit(measurementSystemChoiceBox.getValue());
     	
     	try {
-			currentUser.saveProfile();
-		} catch (IOException e) {
-			e.printStackTrace();
+			currentProfile.saveProfile();
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
     	
     	Stage newUserStage2 = new Stage();
@@ -48,9 +52,10 @@ public class NewUserSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/NewUserSceneTwo.fxml"));
 			NewUserSceneTwoController controller = (NewUserSceneTwoController)loader.getController();
 			controller.newUserStage2 = newUserStage2;
+			controller.setCurrentProfile(currentProfile);
 			Scene scene = new Scene(root,600,180);
 			
-			newUserStage2.setTitle("Fitness Friend");
+			newUserStage2.setTitle("Fitness Friend: " + currentProfile.getName());
 			newUserStage2.setResizable(false);
 			newUserStage2.setScene(scene);
 			newUserStage2.show();
