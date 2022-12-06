@@ -52,4 +52,5 @@ public class PredictSceneController {
 	public void setCurrentProfile(Profile i) {
 		currentProfile = i;
 	}
+
 }

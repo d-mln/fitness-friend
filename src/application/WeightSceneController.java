@@ -93,4 +93,12 @@ public class WeightSceneController {
 		currentProfile = i;
 	}
 
+	public void setUnit(String unit) {
+		if (currentProfile.getUnit() == "Metric") {
+			unitLabel.setText("kilograms");
+		} else {
+			unitLabel.setText("pounds");
+		}
+	}
+
 }

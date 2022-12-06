@@ -31,13 +31,13 @@ public class ExistingUserSceneController {
 		// load profile selected
     	currentProfile = new Profile(accountChoiceBox.getValue());
     	
-    	
-    	System.out.println(currentProfile.getName());
-    	System.out.println(currentProfile.getUnit());
-    	System.out.println(currentProfile.getWeight());
-    	System.out.println(currentProfile.getAge());
-    	System.out.println(currentProfile.getGender());
-    	System.out.println(currentProfile.getHeight());
+//    	
+//    	System.out.println(currentProfile.getName());
+//    	System.out.println(currentProfile.getUnit());
+//    	System.out.println(currentProfile.getWeight());
+//    	System.out.println(currentProfile.getAge());
+//    	System.out.println(currentProfile.getGender());
+//    	System.out.println(currentProfile.getHeight());
     	Stage mainStage = new Stage();
     	try {
 			FXMLLoader loader = new FXMLLoader();

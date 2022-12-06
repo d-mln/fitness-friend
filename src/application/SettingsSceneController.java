@@ -97,16 +97,32 @@ public class SettingsSceneController {
 
     @FXML
     void saveUnit(ActionEvent event) {
-    	currentProfile.setUnit(settingsUnitInput.getValue());
-    	try {
-			currentProfile.saveProfile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    	// make sure it doesn't perform conversion if the unit is the same as selected
+    	if (currentProfile.getUnit().equals(settingsUnitInput.getValue())) {
+    		return;
+    	} else {
+	    	currentProfile.setUnit(settingsUnitInput.getValue());
+	    	if (currentProfile.getUnit() == "Metric") {
+		    	currentProfile.setHeight(currentProfile.getHeight() * 2.54);
+		    	currentProfile.setWeight(currentProfile.getWeight() * 0.45359);
+	    	} else {
+	    		currentProfile.setHeight(currentProfile.getHeight() * 0.394);
+	    		currentProfile.setWeight(currentProfile.getWeight() * 2.2046);
+	    	}
+	    	try {
+				currentProfile.saveProfile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+    	}
     }
 
 	public void setCurrentProfile(Profile i) {
 		currentProfile = i;
 	}
-
+	
+	public void setDropdowns() {
+		settingsUnitInput.setValue(currentProfile.getUnit());
+		settingsGenderInput.setValue(currentProfile.getGender());
+	}
 }

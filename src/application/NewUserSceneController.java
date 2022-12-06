@@ -53,6 +53,7 @@ public class NewUserSceneController {
 			NewUserSceneTwoController controller = (NewUserSceneTwoController)loader.getController();
 			controller.newUserStage2 = newUserStage2;
 			controller.setCurrentProfile(currentProfile);
+			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
 			newUserStage2.setTitle("Fitness Friend: " + currentProfile.getName());

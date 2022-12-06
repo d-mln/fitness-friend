@@ -52,6 +52,7 @@ public class MainSceneController {
     		ExerciseSceneController controller = (ExerciseSceneController)loader.getController();
     		controller.exerciseStage = exerciseStage;
     		controller.setCurrentProfile(currentProfile);
+    		controller.setUnit(currentProfile.getUnit());
     		Scene scene = new Scene(root,400,400);
     		
     		exerciseStage.setTitle("Fitness Friend: Exercises: " + currentProfile.getName());
@@ -115,6 +116,7 @@ public class MainSceneController {
     		SettingsSceneController controller = (SettingsSceneController)loader.getController();
     		controller.settingsStage = settingsStage;
     		controller.setCurrentProfile(currentProfile);
+    		controller.setDropdowns();
     		Scene scene = new Scene(root,400,400);
     		
     		settingsStage.setTitle("Fitness Friend: Settings: " + currentProfile.getName());
@@ -136,6 +138,7 @@ public class MainSceneController {
     		WeightSceneController controller = (WeightSceneController)loader.getController();
     		controller.weightStage = weightStage;
     		controller.setCurrentProfile(currentProfile);
+    		controller.setUnit(currentProfile.getUnit());
     		Scene scene = new Scene(root,400,400);
     		
     		weightStage.setTitle("Fitness Friend: My Weight: " + currentProfile.getName());
@@ -157,9 +160,9 @@ public class MainSceneController {
 		ageTextField.setText(Integer.toString(currentProfile.getAge()));
 		weightLabel.setText(Double.toString(currentProfile.getWeight()));
 		if (currentProfile.getUnit() == "Metric") {
-			unitLabel.setText("kgs");
+			unitLabel.setText("kg");
 		} else {
-			unitLabel.setText("lbs");
+			unitLabel.setText("lb");
 		}
 	}
 }

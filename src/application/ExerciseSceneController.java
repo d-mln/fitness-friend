@@ -94,4 +94,18 @@ public class ExerciseSceneController {
 		currentProfile = i;
 	}
 
+	public void setUnit(String unit) {
+		if (currentProfile.getUnit() == "Metric") {
+			bikingUnitField.setText("kilometers");
+			runningUnitField.setText("kilometers");
+			walkingUnitField.setText("kilometers");
+			swimmingUnitField.setText("laps");
+		} else {
+			bikingUnitField.setText("miles");
+			runningUnitField.setText("miles");
+			walkingUnitField.setText("miles");
+			swimmingUnitField.setText("laps");
+		}		
+	}
+
 }
