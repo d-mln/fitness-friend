@@ -36,7 +36,12 @@ public class NewUserSceneController {
     	// create profiles directory if it doesn't already exist    	
     	new File("src/application/profiles").mkdirs();
     	
-    	currentProfile = new Profile(newUserProfileNameInput.getText());
+    	try {
+			currentProfile = new Profile(newUserProfileNameInput.getText(), false);
+		} catch (IOException e2) {
+			newUserCreateButton.setText("A profile already exists with that name");
+			return;
+		}
     	currentProfile.setName(newUserProfileNameInput.getText());
     	currentProfile.setUnit(measurementSystemChoiceBox.getValue());
     	
@@ -54,7 +59,7 @@ public class NewUserSceneController {
 			controller.newUserStage2 = newUserStage2;
 			controller.setCurrentProfile(currentProfile);
 			controller.setLabels(currentProfile.getUnit());
-			Scene scene = new Scene(root,600,180);
+			Scene scene = new Scene(root,300,180);
 			
 			newUserStage2.setTitle("Fitness Friend: " + currentProfile.getName());
 			newUserStage2.setResizable(false);

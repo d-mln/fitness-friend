@@ -25,7 +25,7 @@ public class NewUserSceneTwoController {
     private Button newUserFinishButton;
 
     @FXML
-    private ChoiceBox<?> newUserGenderChoiceBox;
+    private ChoiceBox<String> newUserGenderChoiceBox;
 
     @FXML
     private TextField newUserHeightInput;
@@ -43,10 +43,16 @@ public class NewUserSceneTwoController {
     @FXML
     void newUserFinishButtonPressed(ActionEvent event) {
 		// write user inputs to save file and switch to main scene
-    	currentProfile.setAge(Integer.parseInt(newUserAgeInput.getText()));
-    	currentProfile.setHeight(Double.parseDouble(newUserHeightInput.getText()));
-    	currentProfile.setGender(newUserGenderChoiceBox.getValue().toString());
-    	currentProfile.setWeight(Double.parseDouble(newUserWeightInput.getText()));
+    	try {
+			currentProfile.setAge(Integer.parseInt(newUserAgeInput.getText()));
+			currentProfile.setHeight(Double.parseDouble(newUserHeightInput.getText()));
+			currentProfile.setGender(newUserGenderChoiceBox.getValue().toString());
+			currentProfile.setWeight(Double.parseDouble(newUserWeightInput.getText()));
+		} catch (Exception e2) {
+			newUserFinishButton.setText("Input positive, real numbers");
+			return;
+		}
+    	
     	try {
 			currentProfile.saveProfile();
 		} catch (IOException e1) {

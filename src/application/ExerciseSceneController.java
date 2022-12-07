@@ -74,12 +74,17 @@ public class ExerciseSceneController {
 
     @FXML
     void saveAndReturnPressed(ActionEvent event) {
-		currentProfile.setBiking(Integer.parseInt(exerciseBikingField.getText()));
-		currentProfile.setRunning(Integer.parseInt(exerciseRunningField.getText()));
-		currentProfile.setWalking(Integer.parseInt(exerciseWalkingField.getText()));
-		currentProfile.setWorkout(Integer.parseInt(exerciseWorkingOutField.getText()));
-		currentProfile.setSwimming(Integer.parseInt(exerciseSwimmingField.getText()));
-    	currentProfile.setExercise(0);
+		try {
+			currentProfile.setBiking(Integer.parseInt(exerciseBikingField.getText()));
+			currentProfile.setRunning(Integer.parseInt(exerciseRunningField.getText()));
+			currentProfile.setWalking(Integer.parseInt(exerciseWalkingField.getText()));
+			currentProfile.setWorkout(Integer.parseInt(exerciseWorkingOutField.getText()));
+			currentProfile.setSwimming(Integer.parseInt(exerciseSwimmingField.getText()));
+	    	currentProfile.setExercise(0);
+		} catch (Exception e) {
+			exerciseSaveAndReturn.setText("Input positive, real numbers");
+			return;
+		}
 		
     	
     	// determine a relative amount of exercise done

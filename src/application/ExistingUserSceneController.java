@@ -2,6 +2,8 @@ package application;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +31,11 @@ public class ExistingUserSceneController {
     @FXML
     void existingUserContinuePressed(ActionEvent event) {
 		// load profile selected
-    	currentProfile = new Profile(accountChoiceBox.getValue());
+    	try {
+			currentProfile = new Profile(accountChoiceBox.getValue(), true);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
     	Stage mainStage = new Stage();
     	try {
 			FXMLLoader loader = new FXMLLoader();

@@ -1,7 +1,6 @@
 package application;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Date;
 
 import javafx.event.ActionEvent;
@@ -55,22 +54,13 @@ public class WeightSceneController {
     @FXML
     void saveAndReturnPressed(ActionEvent event) {
     	try {
-    	Date now = new Date();
-    	currentProfile.setDate(now);
-    	currentProfile.setWeight(Double.parseDouble(weightInput.getText()));
-		try {
+	    	Date now = new Date();
+	    	currentProfile.setDate(now);
+	    	currentProfile.setWeight(Double.parseDouble(weightInput.getText()));
 			currentProfile.toHistory();
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		try {
 			currentProfile.saveProfile();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
     	} catch (Exception e) {
-    		weightSaveAndReturn.setText("Input a positive number");
+    		weightSaveAndReturn.setText("Input a positive, real number");
     		return;
     	}
 

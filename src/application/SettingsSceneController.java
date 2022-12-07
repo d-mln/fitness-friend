@@ -22,7 +22,8 @@ import javafx.stage.Stage;
 public class SettingsSceneController {
 	protected Stage settingsStage;
 	private Profile currentProfile;
-    @FXML
+	
+	@FXML
     private TextField settingsAgeInput;
 
     @FXML
@@ -73,11 +74,11 @@ public class SettingsSceneController {
 
     @FXML
     void saveAge(ActionEvent event) {
-    	currentProfile.setAge(Integer.parseInt(settingsAgeInput.getText()));
     	try {
+			currentProfile.setAge(Integer.parseInt(settingsAgeInput.getText()));
 			currentProfile.saveProfile();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+    		settingsSaveAge.setText("Input a positive, real number");
 		}
     }
 
@@ -93,79 +94,83 @@ public class SettingsSceneController {
 
     @FXML
     void saveHeight(ActionEvent event) {
-    	currentProfile.setHeight(Double.parseDouble(settingsHeightInput.getText()));
     	try {
+    		currentProfile.setHeight(Double.parseDouble(settingsHeightInput.getText()));
 			currentProfile.saveProfile();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+    		settingsSaveHeight.setText("Input a positive, real number");
 		}
     }
 
     @FXML
     void saveUnit(ActionEvent event) throws IOException {
     	// make sure it doesn't perform conversion if the unit is the same as selected
-    	if (currentProfile.getUnit().equals(settingsUnitInput.getValue())) {
-    		return;
-    	} else {
-	    	currentProfile.setUnit(settingsUnitInput.getValue());
-	    	// change current profile then save
-	    	if (currentProfile.getUnit().equals("Metric")) {
-		    	currentProfile.setHeight(currentProfile.getHeight() * 2.54);
-		    	currentProfile.setWeight(currentProfile.getWeight() * 0.45359);
+    	try {
+	    	if (currentProfile.getUnit().equals(settingsUnitInput.getValue())) {
+	    		return;
 	    	} else {
-	    		currentProfile.setHeight(currentProfile.getHeight() * 0.394);
-	    		currentProfile.setWeight(currentProfile.getWeight() * 2.2046);
-	    	}
-	    	try {
-				currentProfile.saveProfile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	    	// change files in history
-	    	int count = 1;
-	    	while (count <= 8) {
-	    		if (currentProfile.getUnit().equals("Metric")) {
-		    		File toSwap = new File("src/application/history/" + currentProfile.getName() + count + ".txt");
-		    		if (toSwap.exists()) {
-		    			File temp = new File("src/application/history/temp.txt");
-		    			temp.createNewFile();
-		    			BufferedReader reader = new BufferedReader(new FileReader(toSwap));
-		    			BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
-		    			PrintWriter pwriter = new PrintWriter(writer);
-		    			
-		    			double weight = Double.parseDouble(reader.readLine());
-		    			pwriter.println(weight * 0.45359);
-		    			pwriter.println(reader.readLine());
-		    			reader.close();
-		    			pwriter.close();
-		    			toSwap.delete();
-		    			temp.renameTo(toSwap);
-		    			count++;
-		    		} else {
-		    			count++;
-		    		}
+		    	currentProfile.setUnit(settingsUnitInput.getValue());
+		    	// change current profile then save
+		    	if (currentProfile.getUnit().equals("Metric")) {
+			    	currentProfile.setHeight(currentProfile.getHeight() * 2.54);
+			    	currentProfile.setWeight(currentProfile.getWeight() * 0.45359);
 		    	} else {
-		    		File toSwap = new File("src/application/history/" + currentProfile.getName() + count + ".txt");
-		    		if (toSwap.exists()) {
-		    			File temp = new File("src/application/history/temp.txt");
-		    			temp.createNewFile();
-		    			BufferedReader reader = new BufferedReader(new FileReader(toSwap));
-		    			BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
-		    			PrintWriter pwriter = new PrintWriter(writer);
-		    			
-		    			double weight = Double.parseDouble(reader.readLine());
-		    			pwriter.println(weight * 2.2046);
-		    			pwriter.println(reader.readLine());
-		    			reader.close();
-		    			pwriter.close();
-		    			toSwap.delete();
-		    			temp.renameTo(toSwap);
-		    			count++;
-		    		} else {
-		    			count++;
-		    		}
+		    		currentProfile.setHeight(currentProfile.getHeight() * 0.394);
+		    		currentProfile.setWeight(currentProfile.getWeight() * 2.2046);
+		    	}
+		    	try {
+					currentProfile.saveProfile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		    	// change files in history
+		    	int count = 1;
+		    	while (count <= 8) {
+		    		if (currentProfile.getUnit().equals("Metric")) {
+			    		File toSwap = new File("src/application/history/" + currentProfile.getName() + count + ".txt");
+			    		if (toSwap.exists()) {
+			    			File temp = new File("src/application/history/temp.txt");
+			    			temp.createNewFile();
+			    			BufferedReader reader = new BufferedReader(new FileReader(toSwap));
+			    			BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
+			    			PrintWriter pwriter = new PrintWriter(writer);
+			    			
+			    			double weight = Double.parseDouble(reader.readLine());
+			    			pwriter.println(weight * 0.45359);
+			    			pwriter.println(reader.readLine());
+			    			reader.close();
+			    			pwriter.close();
+			    			toSwap.delete();
+			    			temp.renameTo(toSwap);
+			    			count++;
+			    		} else {
+			    			count++;
+			    		}
+			    	} else {
+			    		File toSwap = new File("src/application/history/" + currentProfile.getName() + count + ".txt");
+			    		if (toSwap.exists()) {
+			    			File temp = new File("src/application/history/temp.txt");
+			    			temp.createNewFile();
+			    			BufferedReader reader = new BufferedReader(new FileReader(toSwap));
+			    			BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
+			    			PrintWriter pwriter = new PrintWriter(writer);
+			    			
+			    			double weight = Double.parseDouble(reader.readLine());
+			    			pwriter.println(weight * 2.2046);
+			    			pwriter.println(reader.readLine());
+			    			reader.close();
+			    			pwriter.close();
+			    			toSwap.delete();
+			    			temp.renameTo(toSwap);
+			    			count++;
+			    		} else {
+			    			count++;
+			    		}
+			    	}
 		    	}
 	    	}
+    	} catch (Exception e) {
+    		e.printStackTrace();
     	}
     }
 

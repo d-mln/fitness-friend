@@ -58,7 +58,7 @@ public class MainSceneController {
     		ExerciseSceneController controller = (ExerciseSceneController)loader.getController();
     		controller.exerciseStage = exerciseStage;
     		controller.setCurrentProfile(currentProfile);
-    		Scene scene = new Scene(root,320,280);
+    		Scene scene = new Scene(root,330,280);
     		
     		exerciseStage.setTitle("Exercises: " + currentProfile.getName());
     		exerciseStage.setScene(scene);
@@ -125,7 +125,7 @@ public class MainSceneController {
     		controller.settingsStage = settingsStage;
     		controller.setCurrentProfile(currentProfile);
     		controller.setDropdowns();
-    		Scene scene = new Scene(root,350,220);
+    		Scene scene = new Scene(root,400,220);
     		
     		settingsStage.setTitle("Settings: " + currentProfile.getName());
     		settingsStage.setResizable(false);
@@ -147,7 +147,7 @@ public class MainSceneController {
     		controller.weightStage = weightStage;
     		controller.setCurrentProfile(currentProfile);
     		controller.setUnit(currentProfile.getUnit());
-    		Scene scene = new Scene(root,300,120);
+    		Scene scene = new Scene(root,340,120);
     		
     		weightStage.setTitle("My Weight: " + currentProfile.getName());
     		weightStage.setResizable(false);

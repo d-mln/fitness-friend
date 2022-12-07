@@ -28,7 +28,7 @@ public class WelcomeSceneController {
 			VBox root = loader.load(new FileInputStream("src/application/scenes/NewUserScene.fxml"));
 			NewUserSceneController controller = (NewUserSceneController)loader.getController();
 			controller.newUserStage = newUserStage;
-			Scene scene = new Scene(root,500,300);
+			Scene scene = new Scene(root,450,150);
 			
 			newUserStage.setTitle("Fitness Friend");
 			newUserStage.setResizable(false);

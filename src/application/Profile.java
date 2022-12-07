@@ -26,15 +26,19 @@ public class Profile {
 	// relative amount of exercise per week, determined by exercisescenecontroller
 	private int exercise = 0;
 	
-	// if profile already exists, load, else create a new profile
-	public Profile(String i) {
+	// if profile already exists and was expected to load, load, else create a new profile
+	public Profile(String i, boolean doesExist) throws IOException {
 		File check = new File("src/application/profiles/" + i);
-		if (check.exists()) {
+		File check2 = new File("src/application/profiles/" + i + ".txt");
+		if (check.exists() && doesExist) {
 			try {
 				this.loadProfile(i);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+	// don't load a profile and throw an exception if you weren't expecting to load one
+		} else if (check2.exists() && !doesExist) {
+			throw new IOException();
 		} else {
 			this.newProfile(i);
 		}
@@ -50,7 +54,11 @@ public class Profile {
     	}
 	}
 	
-	// saves all profile properties by line
+	/**
+	 * Writes all instance variables to a file, formatted by line:
+	 * name, age, unit, gender, weight, height, date, walking, running, biking, swimming, workout, exercise
+	 * @throws IOException
+	 */
 	public void saveProfile() throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter("src/application/profiles/" + name + ".txt"));
 		PrintWriter pwriter = new PrintWriter(writer);
@@ -71,7 +79,11 @@ public class Profile {
 		pwriter.close();
 	}
 	
-	// reads all profile properties by line
+	/**
+	 * Reads a save file and initializes the variables
+	 * @param i name of the file (including .txt)
+	 * @throws IOException
+	 */
 	public void loadProfile(String i) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader("src/application/profiles/" + i));
 		name = reader.readLine().toString();
@@ -191,6 +203,14 @@ public class Profile {
 		history1.createNewFile();
 		saveHistory(history1);
 	}
+	
+	/*
+	 * 
+	 * 
+	 *  Setter and getter methods
+	 *  
+	 *  
+	 */
 	
 	/**
 	 * Gets the date from a history file, 1 is youngest and 8 is oldest
@@ -379,10 +399,11 @@ public class Profile {
 		return exercise;
 	}
 
+	// exercise can't be more than 10
 	public void setExercise(int exercise) {
 		this.exercise = exercise;
-		if (this.exercise > 5) {
-			exercise = 5;
+		if (this.exercise > 10) {
+			exercise = 10;
 		}
 	}
 

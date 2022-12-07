@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="148.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewUserSceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="124.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewUserSceneController">
    <children>
       <HBox prefHeight="43.0" prefWidth="291.0">
          <children>
@@ -58,9 +58,9 @@
                   <Insets bottom="10.0" left="10.0" top="6.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="newUserCreateButton" minWidth="120.0" mnemonicParsing="false" onAction="#newUserCreateButtonPressed" prefHeight="25.0" prefWidth="120.0" text="Continue">
+            <Button fx:id="newUserCreateButton" mnemonicParsing="false" onAction="#newUserCreateButtonPressed" text="Continue">
                <HBox.margin>
-                  <Insets bottom="10.0" left="70.0" top="6.0" />
+                  <Insets bottom="10.0" left="10.0" top="6.0" />
                </HBox.margin>
             </Button>
          </children>
