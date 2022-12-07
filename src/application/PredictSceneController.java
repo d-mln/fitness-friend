@@ -19,9 +19,6 @@ public class PredictSceneController {
     private Label caloriesBurned;
 
     @FXML
-    private Label fullGainCalories;
-
-    @FXML
     private Label fullLossCalories;
     
     @FXML
@@ -32,9 +29,6 @@ public class PredictSceneController {
     
     @FXML
     private Label fullLossUnitLabel;
-    
-    @FXML
-    private Label fullGainUnitLabel;
     
     @FXML
     private Label halfLossUnitLabel;
@@ -76,10 +70,10 @@ public class PredictSceneController {
     
     public void predict() {
     	caloriesBurned.setText(Integer.toString(currentProfile.getTDEE()));
+    	
     	fullLossCalories.setText(Integer.toString(currentProfile.getTDEE() - 1000));
     	halfLossCalories.setText(Integer.toString(currentProfile.getTDEE() - 500));
-    	fullGainCalories.setText(Integer.toString(currentProfile.getTDEE() + 1000));
-    	halfGainCalories.setText(Integer.toString(currentProfile.getTDEE() + 500));
+    	halfGainCalories.setText(Integer.toString(currentProfile.getTDEE() + 1000));
     }
 
 	public void setCurrentProfile(Profile i) {
@@ -88,15 +82,13 @@ public class PredictSceneController {
 
 	public void setUnit(String unit) {
 		if (currentProfile.getUnit().equals("Metric")) {
-			fullLossUnitLabel.setText("kilogram");
-			fullGainUnitLabel.setText("kilogram");
-			halfLossUnitLabel.setText("kilograms");
-			halfGainUnitLabel.setText("kilograms");
+			fullLossUnitLabel.setText("1 kilogram");
+			halfLossUnitLabel.setText("0.5 kilograms");
+			halfGainUnitLabel.setText("0.5 kilograms");
 		} else {
-			fullLossUnitLabel.setText("pound");
-			fullGainUnitLabel.setText("pound");
-			halfLossUnitLabel.setText("pounds");
-			halfGainUnitLabel.setText("pounds");
+			fullLossUnitLabel.setText("2 pounds");
+			halfLossUnitLabel.setText("1 pound");
+			halfGainUnitLabel.setText("1 pound");
 		}
 	}
 

@@ -90,6 +90,11 @@ public class Profile {
 		
 		reader.close();
 	}
+	
+	public void toHistory() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public String getName() {
 		return name;
@@ -243,4 +248,6 @@ public class Profile {
 		return (int) TDEE;
 		
 	}
+
+
 }

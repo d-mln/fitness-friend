@@ -21,16 +21,7 @@ public class WeightSceneController {
     private Label unitLabel;
 
     @FXML
-    private Label weightHistoryOne;
-
-    @FXML
-    private Label weightHistoryThree;
-
-    @FXML
     private TextField weightInput;
-    
-    @FXML
-    private Label weightHistoryTwo;
 
     @FXML
     private Button weightReturnWOSaving;
@@ -68,6 +59,8 @@ public class WeightSceneController {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		
+		currentProfile.toHistory();
     	
     	Stage mainStage = new Stage();
     	try {

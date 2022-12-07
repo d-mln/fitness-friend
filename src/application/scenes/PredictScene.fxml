@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PredictSceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PredictSceneController">
    <children>
       <HBox prefHeight="38.0" prefWidth="600.0">
          <children>
@@ -29,7 +29,7 @@
       </HBox>
       <HBox prefHeight="55.0" prefWidth="600.0">
          <children>
-            <Label text="To lose 1">
+            <Label text="To lose">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin></Label>
@@ -57,7 +57,7 @@
       </HBox>
       <HBox prefHeight="55.0" prefWidth="600.0">
          <children>
-            <Label text="To lose 0.5">
+            <Label text="To lose">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
@@ -86,36 +86,7 @@
       </HBox>
       <HBox prefHeight="55.0" prefWidth="600.0">
          <children>
-            <Label text="To gain 1">
-               <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="fullGainUnitLabel" text="NO_UNIT">
-               <HBox.margin>
-                  <Insets left="5.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label text="per week, I should eat">
-               <HBox.margin>
-                  <Insets left="5.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="fullGainCalories" text="NO_FULL_GAIN_CAL">
-               <HBox.margin>
-                  <Insets left="5.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label text="calories per day">
-               <HBox.margin>
-                  <Insets left="5.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
-      <HBox prefHeight="55.0" prefWidth="600.0">
-         <children>
-            <Label text="To gain 0.5">
+            <Label text="To gain">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
