@@ -155,7 +155,7 @@ public class Profile {
 	 * @throws IOException
 	 */
 	
-	public void toHistory() throws IOException {
+	protected void toHistory() throws IOException {
 
 		File history1 = new File("src/application/history/" + this.name + "1.txt");
 		if (!history1.exists()) {

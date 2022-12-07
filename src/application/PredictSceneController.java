@@ -39,13 +39,6 @@ public class PredictSceneController {
     @FXML
     private Button predictReturnButton;
 
-
-
-    @FXML
-    void calculatePressed(ActionEvent event) {
-
-    }
-
     @FXML
     void returnPressed(ActionEvent event) {
 		Stage mainStage = new Stage();
