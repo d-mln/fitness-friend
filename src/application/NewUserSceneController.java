@@ -36,6 +36,14 @@ public class NewUserSceneController {
     	// create profiles directory if it doesn't already exist    	
     	new File("src/application/profiles").mkdirs();
     	
+    	// don't create a file with characters windows can't handle
+    	
+    	if (newUserProfileNameInput.getText().contains("\\") || newUserProfileNameInput.getText().contains("/") || newUserProfileNameInput.getText().contains(":") ||
+    		newUserProfileNameInput.getText().contains("*") || newUserProfileNameInput.getText().contains("?") || newUserProfileNameInput.getText().contains("\"") ||
+    		newUserProfileNameInput.getText().contains("<") || newUserProfileNameInput.getText().contains(">") || newUserProfileNameInput.getText().contains("|")) {
+    		newUserCreateButton.setText("Please just use letters & numbers");
+    		return;
+    	}
     	try {
 			currentProfile = new Profile(newUserProfileNameInput.getText(), false);
 		} catch (IOException e2) {
