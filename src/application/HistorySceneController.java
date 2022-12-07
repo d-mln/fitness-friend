@@ -1,8 +1,11 @@
 package application;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -131,6 +134,11 @@ public class HistorySceneController {
     	}
     	try {
 			checkIfExists.createNewFile();
+			BufferedWriter writer = new BufferedWriter(new FileWriter(checkIfExists));
+			PrintWriter pwriter = new PrintWriter(writer);
+			pwriter.println(1111111111);
+			pwriter.println(1111111111);
+			pwriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -170,6 +178,54 @@ public class HistorySceneController {
 	}
 	
 	public void setHistoryObjects() {
+		try {
+			String history1 = Double.toString(currentProfile.getHistoryWeight(8));
+			entryWeight1.setText("i weighed " + history1 + " NO_UNIT");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			String history2 = Double.toString(currentProfile.getHistoryWeight(7));
+			System.out.println(history2);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			String history3 = Double.toString(currentProfile.getHistoryWeight(6));
+			System.out.println(history3);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			String history4 = Double.toString(currentProfile.getHistoryWeight(5));
+			System.out.println(history4);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			String history5 = Double.toString(currentProfile.getHistoryWeight(4));
+			System.out.println(history5);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			String history6 = Double.toString(currentProfile.getHistoryWeight(3));
+			System.out.println(history6);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			String history7 = Double.toString(currentProfile.getHistoryWeight(2));
+			System.out.println(history7);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			String history8 = Double.toString(currentProfile.getHistoryWeight(1));
+			System.out.println(history8);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 

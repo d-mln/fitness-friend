@@ -36,7 +36,7 @@
             </Label>
             <Button fx:id="delHistory1" mnemonicParsing="false" onAction="#deleteHistory1" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -60,7 +60,7 @@
             </Label>
             <Button fx:id="delHistory2" mnemonicParsing="false" onAction="#deleteHistory2" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -84,7 +84,7 @@
             </Label>
             <Button fx:id="delHistory3" mnemonicParsing="false" onAction="#deleteHistory3" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -108,7 +108,7 @@
             </Label>
             <Button fx:id="delHistory4" mnemonicParsing="false" onAction="#deleteHistory4" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -132,7 +132,7 @@
             </Label>
             <Button fx:id="delHistory5" mnemonicParsing="false" onAction="#deleteHistory5" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -156,7 +156,7 @@
             </Label>
             <Button fx:id="delHistory6" mnemonicParsing="false" onAction="#deleteHistory6" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -180,7 +180,7 @@
             </Label>
             <Button fx:id="delHistory7" mnemonicParsing="false" onAction="#deleteHistory7" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -204,7 +204,7 @@
             </Label>
             <Button fx:id="delHistory8" mnemonicParsing="false" onAction="#deleteHistory8" text="Delete">
                <HBox.margin>
-                  <Insets left="300.0" top="6.0" />
+                  <Insets top="6.0" />
                </HBox.margin>
             </Button>
          </children>

@@ -1,7 +1,13 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -96,12 +102,13 @@ public class SettingsSceneController {
     }
 
     @FXML
-    void saveUnit(ActionEvent event) {
+    void saveUnit(ActionEvent event) throws IOException {
     	// make sure it doesn't perform conversion if the unit is the same as selected
     	if (currentProfile.getUnit().equals(settingsUnitInput.getValue())) {
     		return;
     	} else {
 	    	currentProfile.setUnit(settingsUnitInput.getValue());
+	    	// change current profile then save
 	    	if (currentProfile.getUnit().equals("Metric")) {
 		    	currentProfile.setHeight(currentProfile.getHeight() * 2.54);
 		    	currentProfile.setWeight(currentProfile.getWeight() * 0.45359);
@@ -114,6 +121,51 @@ public class SettingsSceneController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+	    	// change files in history
+	    	int count = 1;
+	    	while (count <= 8) {
+	    		if (currentProfile.getUnit().equals("Metric")) {
+		    		File toSwap = new File("src/application/history/" + currentProfile.getName() + count + ".txt");
+		    		if (toSwap.exists()) {
+		    			File temp = new File("src/application/history/temp.txt");
+		    			temp.createNewFile();
+		    			BufferedReader reader = new BufferedReader(new FileReader(toSwap));
+		    			BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
+		    			PrintWriter pwriter = new PrintWriter(writer);
+		    			
+		    			double weight = Double.parseDouble(reader.readLine());
+		    			pwriter.println(weight * 0.45359);
+		    			pwriter.println(reader.readLine());
+		    			reader.close();
+		    			pwriter.close();
+		    			toSwap.delete();
+		    			temp.renameTo(toSwap);
+		    			count++;
+		    		} else {
+		    			count++;
+		    		}
+		    	} else {
+		    		File toSwap = new File("src/application/history/" + currentProfile.getName() + count + ".txt");
+		    		if (toSwap.exists()) {
+		    			File temp = new File("src/application/history/temp.txt");
+		    			temp.createNewFile();
+		    			BufferedReader reader = new BufferedReader(new FileReader(toSwap));
+		    			BufferedWriter writer = new BufferedWriter(new FileWriter(temp));
+		    			PrintWriter pwriter = new PrintWriter(writer);
+		    			
+		    			double weight = Double.parseDouble(reader.readLine());
+		    			pwriter.println(weight * 2.2046);
+		    			pwriter.println(reader.readLine());
+		    			reader.close();
+		    			pwriter.close();
+		    			toSwap.delete();
+		    			temp.renameTo(toSwap);
+		    			count++;
+		    		} else {
+		    			count++;
+		    		}
+		    	}
+	    	}
     	}
     }
 
