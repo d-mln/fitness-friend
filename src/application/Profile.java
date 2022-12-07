@@ -188,7 +188,7 @@ public class Profile {
 		
 		// true = metric, false
 		boolean u = true;
-		if (unit == "Metric") {
+		if (unit.equals("Metric")) {
 			u = true;
 		} else {
 			u = false;
@@ -196,7 +196,7 @@ public class Profile {
 		
 		// gender constant (see formula source)
 		int g;
-		if (gender == "Male") {
+		if (gender.equals("Male")) {
 			g = 5;
 		} else {
 			g = -161;

@@ -79,7 +79,7 @@ public class NewUserSceneTwoController {
 	}
 
 	public void setLabels(String unit) {
-		if (currentProfile.getUnit() == "Metric") {
+		if (currentProfile.getUnit().equals("Metric")) {
 			newUserHeightUnitLabel.setText("cm");
 			newUserWeightUnitLabel.setText("kg");
 		} else {
