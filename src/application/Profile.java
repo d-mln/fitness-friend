@@ -91,10 +91,79 @@ public class Profile {
 		reader.close();
 	}
 	
-	public void toHistory() {
-		// TODO Auto-generated method stub
+	private void saveHistory(File i) throws IOException {
+		BufferedReader reader = new BufferedReader(new FileReader("src/application/profiles/" + name + ".txt"));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(i));
+		PrintWriter pwriter = new PrintWriter(writer);
+		reader.readLine();
+		reader.readLine();
+		reader.readLine();
+		reader.readLine();
+		// weight 
+		pwriter.println(Double.parseDouble(reader.readLine()));
+		reader.readLine();
+		// date
+		pwriter.println(Long.parseLong(reader.readLine()));
 		
+		reader.close();
+		pwriter.close();
 	}
+	
+	public void toHistory() {
+		// make history directory if it doesnt already exist
+		new File("src/application/history/").mkdirs();
+		// copy current profile file to new directory and name it
+		// this has to be the worst way to do it
+		File profileCopy = new File("src/application/history/" + name + "1.txt");
+		int count = 1;
+		while (count < 8) {
+			if (!profileCopy.exists()) {
+				try {
+					profileCopy.createNewFile();
+					this.saveHistory(profileCopy);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return;
+			} else {
+				count++;
+				profileCopy = new File("src/application/history/" + name + count + ".txt");
+			}
+		}
+		if (count >= 8) {
+			File delete = new File("src/application/history/" + name + "1.txt");
+			delete.delete();
+			File newFilename = new File("src/application/history/" + name + "1.txt");
+			File toRename = new File("src/application/history/" + name + "2.txt");
+			toRename.renameTo(newFilename);
+			newFilename = new File("src/application/history/" + name + "2.txt");
+			toRename = new File("src/application/history/" + name + "3.txt");
+			toRename.renameTo(newFilename);
+			newFilename = new File("src/application/history/" + name + "3.txt");
+			toRename = new File("src/application/history/" + name + "4.txt");
+			toRename.renameTo(newFilename);
+			newFilename = new File("src/application/history/" + name + "4.txt");
+			toRename = new File("src/application/history/" + name + "5.txt");
+			toRename.renameTo(newFilename);
+			newFilename = new File("src/application/history/" + name + "5.txt");
+			toRename = new File("src/application/history/" + name + "6.txt");
+			toRename.renameTo(newFilename);
+			newFilename = new File("src/application/history/" + name + "6.txt");
+			toRename = new File("src/application/history/" + name + "7.txt");
+			toRename.renameTo(newFilename);
+			newFilename = new File("src/application/history/" + name + "7.txt");
+			toRename = new File("src/application/history/" + name + "8.txt");
+			toRename.renameTo(newFilename);
+			profileCopy = new File("src/application/history/" + name + "8.txt");
+			try {
+				profileCopy.createNewFile();
+				this.saveHistory(profileCopy);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 
 	public String getName() {
 		return name;

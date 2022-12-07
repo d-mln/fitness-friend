@@ -54,13 +54,14 @@ public class WeightSceneController {
     @FXML
     void saveAndReturnPressed(ActionEvent event) {
 		currentProfile.setWeight(Double.parseDouble(weightInput.getText()));
+		currentProfile.toHistory();
 		try {
 			currentProfile.saveProfile();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		
-		currentProfile.toHistory();
+
     	
     	Stage mainStage = new Stage();
     	try {
