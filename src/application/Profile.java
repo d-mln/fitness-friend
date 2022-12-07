@@ -78,9 +78,9 @@ public class Profile {
 		weight = Double.parseDouble(reader.readLine());
 		height = Double.parseDouble(reader.readLine());
 		date = new Date(Long.parseLong(reader.readLine()));
-		walking = Double.parseDouble(reader.readLine());
-		running = Double.parseDouble(reader.readLine());
-		biking = Double.parseDouble(reader.readLine());
+		walking = Integer.parseInt(reader.readLine());
+		running = Integer.parseInt(reader.readLine());
+		biking = Integer.parseInt(reader.readLine());
 		swimming = Integer.parseInt(reader.readLine());
 		workout = Integer.parseInt(reader.readLine());
 		
