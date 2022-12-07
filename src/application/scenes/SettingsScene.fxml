@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SettingsSceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SettingsSceneController">
    <children>
       <HBox prefHeight="41.0" prefWidth="600.0">
          <children>
@@ -93,11 +93,16 @@
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="settingsHeightInput">
+            <TextField fx:id="settingsHeightInput" prefHeight="25.0" prefWidth="128.0">
                <HBox.margin>
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>
             </TextField>
+            <Label text="cm/inches">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
             <Button fx:id="settingsSaveHeight" mnemonicParsing="false" onAction="#saveHeight" text="Save">
                <HBox.margin>
                   <Insets left="10.0" top="6.0" />
@@ -105,7 +110,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="44.0" prefWidth="600.0">
          <children>
             <Button fx:id="settingsReturnWOSaving" mnemonicParsing="false" onAction="#returnWOSavingPressed" text="Return">
                <HBox.margin>

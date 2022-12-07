@@ -1,11 +1,8 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Date;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -95,59 +92,199 @@ public class HistorySceneController {
     private Button historyReturnButton;
 	
     @FXML
-    void deleteHistory1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteHistory2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteHistory3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteHistory4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteHistory5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteHistory6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deleteHistory7(ActionEvent event) {
-    	File toDelete = new File("src/application/history/" + currentProfile.getName() + "2.txt");
-    	toDelete.delete();
-    	File checkIfExists = new File("src/application/history/" + currentProfile.getName() + "1.txt");
-    	if (checkIfExists.exists()) {
-    		checkIfExists.renameTo(toDelete);
-    	}
+    void deleteHistory1(ActionEvent event) throws IOException {
+    	Stage confirmStage = new Stage();
+    	
     	try {
-			checkIfExists.createNewFile();
-			BufferedWriter writer = new BufferedWriter(new FileWriter(checkIfExists));
-			PrintWriter pwriter = new PrintWriter(writer);
-			pwriter.println(1111111111);
-			pwriter.println(1111111111);
-			pwriter.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 1;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    }
+
+    @FXML
+    void deleteHistory2(ActionEvent event) throws IOException {
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 2;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    }
+
+    @FXML
+    void deleteHistory3(ActionEvent event) throws IOException {
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 3;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+
+    }
+
+    @FXML
+    void deleteHistory4(ActionEvent event) throws IOException {
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 4;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+
+    }
+
+    @FXML
+    void deleteHistory5(ActionEvent event) throws IOException {
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 5;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+
+    }
+
+    @FXML
+    void deleteHistory6(ActionEvent event) throws IOException{
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 6;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+
+    }
+
+    @FXML
+    void deleteHistory7(ActionEvent event) throws IOException {
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 7;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+
     }
 
     @FXML
     void deleteHistory8(ActionEvent event) {
-    	File toDelete = new File("src/application/history/" + currentProfile.getName() + "1.txt");
-    	toDelete.delete();
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		controller.buttonPressed = 8;
+    		Scene scene = new Scene(root,195,105);
+    		
+    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		historyStage.close();
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+
     }
     
     @FXML
@@ -162,7 +299,7 @@ public class HistorySceneController {
 			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
-			mainStage.setTitle("Fitness Friend");
+			mainStage.setTitle("Fitness Friend: " + currentProfile.getName());
 			mainStage.setResizable(false);
 			mainStage.setScene(scene);
 			mainStage.show();
@@ -177,56 +314,104 @@ public class HistorySceneController {
 		currentProfile = i;
 	}
 	
-	public void setHistoryObjects() {
-		try {
-			String history1 = Double.toString(currentProfile.getHistoryWeight(8));
-			entryWeight1.setText("i weighed " + history1 + " NO_UNIT");
-		} catch (IOException e) {
-			e.printStackTrace();
+	@SuppressWarnings("deprecation")
+	public void setHistoryObjects() throws IOException {
+		// entry 1
+		if (!currentProfile.getHistoryDate(1).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(1)));
+			entryDate1.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight1.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(1))) + " kilograms");
+			} else {
+				entryWeight1.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(1))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		try {
-			String history2 = Double.toString(currentProfile.getHistoryWeight(7));
-			System.out.println(history2);
-		} catch (IOException e) {
-			e.printStackTrace();
+		// entry 2
+		if (!currentProfile.getHistoryDate(2).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(2)));
+			entryDate2.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight2.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(2))) + " kilograms");
+			} else {
+				entryWeight2.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(2))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		try {
-			String history3 = Double.toString(currentProfile.getHistoryWeight(6));
-			System.out.println(history3);
-		} catch (IOException e) {
-			e.printStackTrace();
+		// entry 3
+		if (!currentProfile.getHistoryDate(3).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(3)));
+			entryDate3.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight3.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(3))) + " kilograms");
+			} else {
+				entryWeight3.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(3))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		try {
-			String history4 = Double.toString(currentProfile.getHistoryWeight(5));
-			System.out.println(history4);
-		} catch (IOException e) {
-			e.printStackTrace();
+		// entry 4
+		if (!currentProfile.getHistoryDate(4).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(4)));
+			entryDate4.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight4.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(4))) + " kilograms");
+			} else {
+				entryWeight4.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(4))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		try {
-			String history5 = Double.toString(currentProfile.getHistoryWeight(4));
-			System.out.println(history5);
-		} catch (IOException e) {
-			e.printStackTrace();
+		// entry 5
+		if (!currentProfile.getHistoryDate(5).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(5)));
+			entryDate5.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight5.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(5))) + " kilograms");
+			} else {
+				entryWeight5.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(5))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		try {
-			String history6 = Double.toString(currentProfile.getHistoryWeight(3));
-			System.out.println(history6);
-		} catch (IOException e) {
-			e.printStackTrace();
+		// entry 6
+		if (!currentProfile.getHistoryDate(6).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(6)));
+			entryDate6.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight6.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(6))) + " kilograms");
+			} else {
+				entryWeight6.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(6))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		try {
-			String history7 = Double.toString(currentProfile.getHistoryWeight(2));
-			System.out.println(history7);
-		} catch (IOException e) {
-			e.printStackTrace();
+		// entry 7
+		if (!currentProfile.getHistoryDate(7).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(7)));
+			entryDate7.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight7.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(7))) + " kilograms");
+			} else {
+				entryWeight7.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(7))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		try {
-			String history8 = Double.toString(currentProfile.getHistoryWeight(1));
-			System.out.println(history8);
-		} catch (IOException e) {
-			e.printStackTrace();
+		// entry 8
+		if (!currentProfile.getHistoryDate(8).equals("NONE")) {
+			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(8)));
+			entryDate8.setText("On "+ (historyDate.getYear() + 1900) + "-" + (historyDate.getMonth() + 1) + "-" + historyDate.getDate() + " I weighed");
+			if (currentProfile.getUnit().equals("Metric")) {
+				entryWeight8.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(8))) + " kilograms");
+			} else {
+				entryWeight8.setText(String.format("%.2f", Double.parseDouble(currentProfile.getHistoryWeight(8))) + " pounds");
+			}
+		} else {
+			return;
 		}
-		
 	}
 
 }

@@ -2,8 +2,6 @@ package application;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.util.Date;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,9 +30,6 @@ public class ExistingUserSceneController {
     void existingUserContinuePressed(ActionEvent event) {
 		// load profile selected
     	currentProfile = new Profile(accountChoiceBox.getValue());
-    	Date now = new Date();
-    	currentProfile.setDate(now);
-    	
     	Stage mainStage = new Stage();
     	try {
 			FXMLLoader loader = new FXMLLoader();

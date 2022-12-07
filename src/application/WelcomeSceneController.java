@@ -49,7 +49,7 @@ public class WelcomeSceneController {
 			ExistingUserSceneController controller = (ExistingUserSceneController)loader.getController();
 			controller.existingUserStage = existingUserStage;
 			controller.addExistingProfiles();
-			Scene scene = new Scene(root,600,180);
+			Scene scene = new Scene(root,350,80);
 			
 			existingUserStage.setTitle("Fitness Friend");
 			existingUserStage.setResizable(false);

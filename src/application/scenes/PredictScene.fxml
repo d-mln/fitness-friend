@@ -5,10 +5,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PredictSceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PredictSceneController">
    <children>
-      <HBox prefHeight="38.0" prefWidth="600.0">
+      <HBox prefHeight="19.0" prefWidth="600.0">
+         <children>
+            <Label text="If you haven't input your exercise, you should do that first!">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="21.0" prefWidth="600.0">
          <children>
             <Label prefHeight="17.0" prefWidth="87.0" text="I currently burn">
                <HBox.margin>
@@ -19,15 +29,18 @@
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
             <Label text="calories per day">
                <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="5.0" top="10.0" />
                </HBox.margin>
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="55.0" prefWidth="600.0">
+      <HBox prefHeight="16.0" prefWidth="600.0">
          <children>
             <Label text="To lose">
                <HBox.margin>
@@ -37,6 +50,9 @@
                <HBox.margin>
                   <Insets left="5.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
             <Label text="per week, I should eat">
                <HBox.margin>
@@ -47,6 +63,9 @@
                <HBox.margin>
                   <Insets left="5.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
             <Label text="calories per day">
                <HBox.margin>
@@ -55,7 +74,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="55.0" prefWidth="600.0">
+      <HBox prefHeight="26.0" prefWidth="600.0">
          <children>
             <Label text="To lose">
                <HBox.margin>
@@ -66,6 +85,9 @@
                <HBox.margin>
                   <Insets left="5.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
             <Label text="per week, I should eat">
                <HBox.margin>
@@ -76,6 +98,9 @@
                <HBox.margin>
                   <Insets left="5.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
             <Label text="calories per day">
                <HBox.margin>
@@ -84,7 +109,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="55.0" prefWidth="600.0">
+      <HBox prefHeight="4.0" prefWidth="600.0">
          <children>
             <Label text="To gain">
                <HBox.margin>
@@ -95,6 +120,9 @@
                <HBox.margin>
                   <Insets left="5.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
             <Label text="per week, I should eat">
                <HBox.margin>
@@ -105,6 +133,9 @@
                <HBox.margin>
                   <Insets left="5.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
             <Label text="calories per day">
                <HBox.margin>
@@ -113,21 +144,21 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="44.0" prefWidth="600.0">
+      <HBox prefHeight="29.0" prefWidth="600.0">
          <children>
             <Button fx:id="predictReturnButton" mnemonicParsing="false" onAction="#returnPressed" text="Return">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" top="6.0" />
+                  <Insets left="10.0" top="6.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <Label prefHeight="22.0" prefWidth="590.0" text="Please note, calculations are based off averages, this may not be accurate to you and you should">
+      <Label prefHeight="22.0" prefWidth="590.0" text="Please note, calculations are based off averages, this may not be accurate to you and you should" textFill="RED">
          <VBox.margin>
-            <Insets left="10.0" top="10.0" />
+            <Insets left="10.0" top="5.0" />
          </VBox.margin>
       </Label>
-      <Label text="adjust your diet based on your own results. Use only as a starting guideline!">
+      <Label text="adjust your diet based on your own results. Use only as a starting guideline!" textFill="RED">
          <VBox.margin>
             <Insets left="10.0" />
          </VBox.margin>

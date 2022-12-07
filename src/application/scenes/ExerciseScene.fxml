@@ -115,12 +115,12 @@
       </HBox>
       <HBox prefHeight="25.0" prefWidth="600.0">
          <children>
-            <Button fx:id="exerciseSaveAndReturn" mnemonicParsing="false" onAction="#saveAndReturnPressed" text="Save &amp; Return">
+            <Button fx:id="exerciseReturnWOSaving" mnemonicParsing="false" onAction="#returnWOSavingPressed" text="Return without saving">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="exerciseReturnWOSaving" mnemonicParsing="false" onAction="#returnWOSavingPressed" text="Return without saving">
+            <Button fx:id="exerciseSaveAndReturn" mnemonicParsing="false" onAction="#saveAndReturnPressed" text="Save &amp; Return">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" top="10.0" />
                </HBox.margin>

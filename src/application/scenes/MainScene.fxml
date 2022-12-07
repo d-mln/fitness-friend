@@ -6,23 +6,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="138.0" minWidth="600.0" prefHeight="138.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="138.0" minWidth="600.0" prefHeight="166.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
    <children>
       <HBox prefHeight="38.0" prefWidth="600.0">
          <children>
             <HBox minHeight="38.0" minWidth="507.0" prefHeight="38.0" prefWidth="507.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="125.0" text="Welcome! It has been">
-                     <padding>
+                  <Label fx:id="welcomeMessage1" text="Welcome! It has been">
+                     <HBox.margin>
                         <Insets left="10.0" top="10.0" />
-                     </padding>
+                     </HBox.margin>
                   </Label>
                   <Label fx:id="timeSinceLoginField" minWidth="20.0" text="NO_DATE">
-                     <padding>
+                     <HBox.margin>
                         <Insets left="5.0" top="10.0" />
-                     </padding>
+                     </HBox.margin>
                   </Label>
-                  <Label prefHeight="17.0" prefWidth="195.0" text="since you last updated your profile.">
+                  <Label fx:id="welcomeMessage2" prefHeight="17.0" prefWidth="195.0" text="since you last updated your profile.">
                      <HBox.margin>
                         <Insets left="5.0" top="10.0" />
                      </HBox.margin>
@@ -78,16 +78,25 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="38.0" prefWidth="600.0">
+      <HBox prefHeight="65.0" prefWidth="600.0">
          <children>
-            <Button fx:id="weightSceneButton" mnemonicParsing="false" onAction="#weightButtonPressed" text="Input my weight">
+            <Button fx:id="weightSceneButton" mnemonicParsing="false" onAction="#weightButtonPressed" prefHeight="53.0" prefWidth="135.0" text="Input my weight">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="exerciseSceneButton" mnemonicParsing="false" onAction="#exerciseButtonPressed" text="Update my exercise" />
-            <Button fx:id="predictSceneButton" mnemonicParsing="false" onAction="#predictButtonPressed" text="Predict my weight loss" />
-            <Button fx:id="historySceneButton" mnemonicParsing="false" onAction="#historyButtonPressed" text="View my history" />
+            <Button fx:id="exerciseSceneButton" mnemonicParsing="false" onAction="#exerciseButtonPressed" prefHeight="53.0" prefWidth="135.0" text="Update my exercise">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="predictSceneButton" mnemonicParsing="false" onAction="#predictButtonPressed" prefHeight="53.0" prefWidth="135.0" text="Predict my weight loss">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Button>
+            <Button fx:id="historySceneButton" mnemonicParsing="false" onAction="#historyButtonPressed" prefHeight="53.0" prefWidth="135.0" text="View my history">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Button>
          </children>
          <VBox.margin>
             <Insets top="5.0" />

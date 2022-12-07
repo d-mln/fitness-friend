@@ -44,6 +44,12 @@ public class MainSceneController {
     private Button weightSceneButton;
 
     @FXML
+    private Label welcomeMessage1;
+
+    @FXML
+    private Label welcomeMessage2;
+
+    @FXML
     void exerciseButtonPressed(ActionEvent event) {
     	Stage exerciseStage = new Stage();
     	try {
@@ -52,9 +58,9 @@ public class MainSceneController {
     		ExerciseSceneController controller = (ExerciseSceneController)loader.getController();
     		controller.exerciseStage = exerciseStage;
     		controller.setCurrentProfile(currentProfile);
-    		Scene scene = new Scene(root,400,400);
+    		Scene scene = new Scene(root,320,280);
     		
-    		exerciseStage.setTitle("Fitness Friend: Exercises: " + currentProfile.getName());
+    		exerciseStage.setTitle("Exercises: " + currentProfile.getName());
     		exerciseStage.setScene(scene);
     		exerciseStage.setResizable(false);
     		exerciseStage.show();
@@ -74,9 +80,9 @@ public class MainSceneController {
     		controller.historyStage = historyStage;
     		controller.setCurrentProfile(currentProfile);
     		controller.setHistoryObjects();
-    		Scene scene = new Scene(root,450,400);
+    		Scene scene = new Scene(root,350,400);
     		
-    		historyStage.setTitle("Fitness Friend: History: " + currentProfile.getName());
+    		historyStage.setTitle("History: " + currentProfile.getName());
     		historyStage.setResizable(false);
     		historyStage.setScene(scene);
     		historyStage.show();
@@ -97,9 +103,9 @@ public class MainSceneController {
     		controller.setCurrentProfile(currentProfile);
     		controller.setUnit(currentProfile.getUnit());
     		controller.predict();
-    		Scene scene = new Scene(root,550,300);
+    		Scene scene = new Scene(root,550,220);
     		
-    		predictStage.setTitle("Fitness Friend: Prediction: " + currentProfile.getName());
+    		predictStage.setTitle("Calculator: " + currentProfile.getName());
     		predictStage.setResizable(false);
     		predictStage.setScene(scene);
     		predictStage.show();
@@ -119,9 +125,9 @@ public class MainSceneController {
     		controller.settingsStage = settingsStage;
     		controller.setCurrentProfile(currentProfile);
     		controller.setDropdowns();
-    		Scene scene = new Scene(root,400,400);
+    		Scene scene = new Scene(root,350,220);
     		
-    		settingsStage.setTitle("Fitness Friend: Settings: " + currentProfile.getName());
+    		settingsStage.setTitle("Settings: " + currentProfile.getName());
     		settingsStage.setResizable(false);
     		settingsStage.setScene(scene);
     		settingsStage.show();
@@ -141,9 +147,9 @@ public class MainSceneController {
     		controller.weightStage = weightStage;
     		controller.setCurrentProfile(currentProfile);
     		controller.setUnit(currentProfile.getUnit());
-    		Scene scene = new Scene(root,400,400);
+    		Scene scene = new Scene(root,300,120);
     		
-    		weightStage.setTitle("Fitness Friend: My Weight: " + currentProfile.getName());
+    		weightStage.setTitle("My Weight: " + currentProfile.getName());
     		weightStage.setResizable(false);
     		weightStage.setScene(scene);
     		weightStage.show();
@@ -161,6 +167,26 @@ public class MainSceneController {
 	public void setLabels(String i) {
 		ageTextField.setText(Integer.toString(currentProfile.getAge()));
 		weightLabel.setText(String.format("%.2f", currentProfile.getWeight()));
+		
+		try {
+			Long lastLoginDate = Long.parseLong(currentProfile.getHistoryDate(1));
+			Long currentLoginDate = currentProfile.getDate().getTime();
+			Long timeDifference = currentLoginDate - lastLoginDate;
+			int daysSinceLogin = (int) (((timeDifference / 600000) / 24));
+			
+			if (daysSinceLogin == 0) {
+				welcomeMessage1.setText("Welcome!");
+				timeSinceLoginField.setText("You already input your weight today!");
+				welcomeMessage2.setText("");
+			} else {
+				timeSinceLoginField.setText(Integer.toString(daysSinceLogin) + " days");
+			}
+		} catch (Exception e) {
+			welcomeMessage1.setText("Welcome!");
+			timeSinceLoginField.setText("You haven't input your weight yet!");
+			welcomeMessage2.setText("");
+		}
+		
 		if (currentProfile.getUnit().equals("Metric")) {
 			unitLabel.setText("kilograms");
 		} else {

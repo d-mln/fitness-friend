@@ -91,6 +91,11 @@ public class Profile {
 		reader.close();
 	}
 	
+	/**
+	 * Writes profile save file weight and date to another file
+	 * @param i file to write to
+	 * @throws IOException
+	 */
 	private void saveHistory(File i) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader("src/application/profiles/" + this.name + ".txt"));
 		BufferedWriter writer = new BufferedWriter(new FileWriter(i));
@@ -109,105 +114,137 @@ public class Profile {
 		pwriter.close();
 	}
 	
-	public void toHistory() {
+	/**
+	 * Copies a history file, will die horribly if any other file is input
+	 * @param i input file directory
+	 * @param o output file directory
+	 * @throws IOException
+	 */
+	protected void copyHistory(File i, File o) throws IOException {
+		if (!i.exists()) {
+			return;
+		}
+		BufferedReader reader = new BufferedReader(new FileReader(i));
+		if (!o.exists()) {
+			o.createNewFile();
+		}
+		BufferedWriter writer = new BufferedWriter(new FileWriter(o));
+		PrintWriter pwriter = new PrintWriter(writer);
+		
+		pwriter.println(Double.parseDouble(reader.readLine()));
+		pwriter.println(Long.parseLong(reader.readLine()));
+		
+		reader.close();
+		pwriter.close();
+	}
+	
+	public void toHistory() throws IOException {
 		// make history directory if it doesnt already exist
-		new File("src/application/history/").mkdirs();
 		// copy current profile file to new directory and name it
 		// this has to be the worst way to do it
-		File profileCopy = new File("src/application/history/" + name + "1.txt");
-		int count = 1;
-		while (count < 8) {
-			if (!profileCopy.exists()) {
-				try {
-					profileCopy.createNewFile();
-					this.saveHistory(profileCopy);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				return;
+		// birds keep dropping out of the sky as i type
+		File history1 = new File("src/application/history/" + this.name + "1.txt");
+		if (!history1.exists()) {
+			history1.createNewFile();
+			saveHistory(history1);
+		} else {
+			File history2 = new File("src/application/history/" + this.name + "2.txt");
+			if (!history2.exists()) {
+				copyHistory(history1, history2);
 			} else {
-				count++;
-				profileCopy = new File("src/application/history/" + name + count + ".txt");
+				File history3 = new File("src/application/history/" + this.name + "3.txt");
+				if (!history3.exists()) {
+					copyHistory(history2, history3);
+				} else {
+					File history4 = new File("src/application/history/" + this.name + "4.txt");
+					if (!history4.exists()) {
+						copyHistory(history3, history4);
+					} else {
+						File history5 = new File("src/application/history/" + this.name + "5.txt");
+						if (!history5.exists()) {
+							copyHistory(history4, history5);
+						} else {
+							File history6 = new File("src/application/history/" + this.name + "6.txt");
+							if (!history6.exists()) {
+								copyHistory(history5, history6);
+							} else {
+								File history7 = new File("src/application/history/" + this.name + "7.txt");
+								if (!history7.exists()) {
+									copyHistory(history6, history7);
+								} else {
+									File history8 = new File("src/application/history/" + this.name + "8.txt");
+									history8.delete();
+									copyHistory(history7, history8);
+								}
+								copyHistory(history6, history7);
+							}
+							copyHistory(history5, history6);
+						}
+						copyHistory(history4, history5);
+					}
+					copyHistory(history3, history4);
+				}
+				copyHistory(history2, history3);
 			}
+			copyHistory(history1, history2);
 		}
-		if (count >= 8) {
-			File delete = new File("src/application/history/" + name + "1.txt");
-			delete.delete();
-			File newFilename = new File("src/application/history/" + name + "1.txt");
-			File toRename = new File("src/application/history/" + name + "2.txt");
-			toRename.renameTo(newFilename);
-			newFilename = new File("src/application/history/" + name + "2.txt");
-			toRename = new File("src/application/history/" + name + "3.txt");
-			toRename.renameTo(newFilename);
-			newFilename = new File("src/application/history/" + name + "3.txt");
-			toRename = new File("src/application/history/" + name + "4.txt");
-			toRename.renameTo(newFilename);
-			newFilename = new File("src/application/history/" + name + "4.txt");
-			toRename = new File("src/application/history/" + name + "5.txt");
-			toRename.renameTo(newFilename);
-			newFilename = new File("src/application/history/" + name + "5.txt");
-			toRename = new File("src/application/history/" + name + "6.txt");
-			toRename.renameTo(newFilename);
-			newFilename = new File("src/application/history/" + name + "6.txt");
-			toRename = new File("src/application/history/" + name + "7.txt");
-			toRename.renameTo(newFilename);
-			newFilename = new File("src/application/history/" + name + "7.txt");
-			toRename = new File("src/application/history/" + name + "8.txt");
-			toRename.renameTo(newFilename);
-			profileCopy = new File("src/application/history/" + name + "8.txt");
-			try {
-				profileCopy.createNewFile();
-				this.saveHistory(profileCopy);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		history1.createNewFile();
+		saveHistory(history1);
 	}
 	
 	/**
-	 * Gets the date from a history file, 8 is youngest and 1 is oldest
+	 * Gets the date from a history file, 1 is youngest and 8 is oldest
 	 * @param i recency of file as an int
-	 * @return when that history file was logged into last as a Date
+	 * @return when that history file was logged into last as a string !!REMEMBER TO CONVERT AFTER!!
 	 * @throws IOException
 	 */
-	public Date getHistoryDate(int i) throws IOException {
+	public String getHistoryDate(int i) throws IOException {
 		File check = new File("src/application/history/");
-		int count = i;
-		while (count > 0) {
-			check = new File("src/application/history/" + this.name + count + ".txt");
-			if (check.exists()) {
-				BufferedReader reader = new BufferedReader(new FileReader(check));
-				reader.readLine();
-				Date output = new Date(Long.parseLong(reader.readLine()));
-				reader.close();
-				return output;
-			} else {
-				count--;
-			}
+		check = new File("src/application/history/" + this.name + i + ".txt");
+		if (check.exists()) {
+			BufferedReader reader = new BufferedReader(new FileReader(check));
+			reader.readLine();
+			String output =  reader.readLine();
+			reader.close();
+			return output;
+		} else {
+			return "NONE";
 		}
-		return null;
 	}
 	/**
-	 * Gets the weight from a history file, 8 is youngest and 1 is oldest
+	 * Gets the weight from a history file, 1 is youngest and 8 is oldest
 	 * @param i recency of the file as int
-	 * @return Weight in that history file as an int
+	 * @return Weight in that history file as a string !!REMEMBER TO CONVERT AFTER!!
 	 * @throws IOException
 	 */
-	public double getHistoryWeight(int i) throws IOException {
+	public String getHistoryWeight(int i) throws IOException {
 		File check = new File("src/application/history/");
-		int count = i;
+		check = new File("src/application/history/" + this.name + i + ".txt");
+		if (check.exists()) {
+			BufferedReader reader = new BufferedReader(new FileReader(check));
+			String output = reader.readLine();
+			reader.close();
+			return output;
+		} else {
+			return "NONE";
+		}
+	}
+	/**
+	 * Returns the oldest file in that profile's history
+	 * @return Oldest file as a File
+	 */
+	public File getHistoryOldest() {
+		int count = 8;
+		File f = new File("src/");
 		while (count > 0) {
-			check = new File("src/application/history/" + this.name + count + ".txt");
-			if (check.exists()) {
-				BufferedReader reader = new BufferedReader(new FileReader(check));
-				double output = Double.parseDouble(reader.readLine());
-				reader.close();
-				return output;
+			f = new File("src/application/history/" + this.name + count + ".txt");
+			if (f.exists()) {
+				return f;
 			} else {
 				count--;
 			}
-		}
-		return 0;
+		}	
+		return null;
 	}
 	
 	public String getName() {
@@ -238,24 +275,36 @@ public class Profile {
 		return weight;
 	}
 
-	public void setWeight(double weight) {
-		this.weight = weight;
+	public void setWeight(double weight) throws NegativeNumberException  {
+		if (weight >= 0) {
+			this.weight = weight;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 
 	public double getHeight() {
 		return height;
 	}
 
-	public void setHeight(double height) {
-		this.height = height;
+	public void setHeight(double height) throws NegativeNumberException  {
+		if (height >= 0) {
+			this.height = height;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 
 	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setAge(int age) throws NegativeNumberException  {
+		if (height >= 0) {
+			this.age = age;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 	
 	public Date getDate() {
@@ -270,40 +319,60 @@ public class Profile {
 		return walking;
 	}
 
-	public void setWalking(int walking) {
-		this.walking = walking;
+	public void setWalking(int walking) throws NegativeNumberException  {
+		if (walking >= 0) {
+			this.walking = walking;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 
 	public int getRunning() {
 		return running;
 	}
 
-	public void setRunning(int running) {
-		this.running = running;
+	public void setRunning(int running) throws NegativeNumberException  {
+		if (running >= 0) {
+			this.running = running;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 
 	public int getBiking() {
 		return biking;
 	}
 
-	public void setBiking(int biking) {
-		this.biking = biking;
+	public void setBiking(int biking) throws NegativeNumberException  {
+		if (biking >= 0) {
+			this.biking = biking;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 
 	public int getSwimming() {
 		return swimming;
 	}
 
-	public void setSwimming(int swimming) {
-		this.swimming = swimming;
+	public void setSwimming(int swimming) throws NegativeNumberException  {
+		if (swimming >= 0) {
+			this.swimming = swimming;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 
 	public int getWorkout() {
 		return workout;
 	}
 
-	public void setWorkout(int workout) {
-		this.workout = workout;
+	public void setWorkout(int workout) throws NegativeNumberException {
+		if (workout >= 0) {
+			this.workout = workout;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 	
 	public int getExercise() {
@@ -336,7 +405,7 @@ public class Profile {
 			bmr = (4.5359 * weight) + (15.875 * height) + (5 * age) + g;
 		}
 		
-		// multiply bmr depending on exercise class
+		// multiply bmr depending on given exercise class
 		double TDEE = 0;
 		if (exercise <= 1) {
 			TDEE = bmr * 1.035;
