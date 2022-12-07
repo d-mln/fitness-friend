@@ -18,9 +18,9 @@ public class Profile {
 	private double height = 0.0;
 	private Date date = new Date();
 	
-	private double walking = 0.0;
-	private double running = 0.0;
-	private double biking = 0.0;
+	private int walking = 0;
+	private int running = 0;
+	private int biking = 0;
 	private int swimming = 0;
 	private int workout = 0;
 	
@@ -147,7 +147,7 @@ public class Profile {
 		return walking;
 	}
 
-	public void setWalking(double walking) {
+	public void setWalking(int walking) {
 		this.walking = walking;
 	}
 
@@ -155,7 +155,7 @@ public class Profile {
 		return running;
 	}
 
-	public void setRunning(double running) {
+	public void setRunning(int running) {
 		this.running = running;
 	}
 
@@ -163,7 +163,7 @@ public class Profile {
 		return biking;
 	}
 
-	public void setBiking(double biking) {
+	public void setBiking(int biking) {
 		this.biking = biking;
 	}
 
@@ -181,5 +181,31 @@ public class Profile {
 
 	public void setWorkout(int workout) {
 		this.workout = workout;
+	}
+	
+	// formula found here https://www.gigacalculator.com/calculators/tdee-calculator.php
+	public void getTDEE(Profile i) {
+		
+		// true = metric, false
+		boolean u = true;
+		if (unit == "Metric") {
+			u = true;
+		} else {
+			u = false;
+		}
+		
+		// gender constant (see formula source)
+		int g;
+		if (gender == "Male") {
+			g = 5;
+		} else {
+			g = -161;
+		}
+		System.out.print(g);
+		
+		
+		double bmr = (10 * weight) + (6.25 * height) + (5 * age) + g;
+		
+		
 	}
 }

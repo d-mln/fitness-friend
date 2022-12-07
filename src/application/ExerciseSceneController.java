@@ -74,9 +74,9 @@ public class ExerciseSceneController {
 
     @FXML
     void saveAndReturnPressed(ActionEvent event) {
-		currentProfile.setBiking(Double.parseDouble(exerciseBikingField.getText()));
-		currentProfile.setRunning(Double.parseDouble(exerciseRunningField.getText()));
-		currentProfile.setWalking(Double.parseDouble(exerciseWalkingField.getText()));
+		currentProfile.setBiking(Integer.parseInt(exerciseBikingField.getText()));
+		currentProfile.setRunning(Integer.parseInt(exerciseRunningField.getText()));
+		currentProfile.setWalking(Integer.parseInt(exerciseWalkingField.getText()));
 		currentProfile.setWorkout(Integer.parseInt(exerciseWorkingOutField.getText()));
 		currentProfile.setSwimming(Integer.parseInt(exerciseSwimmingField.getText()));
     	try {
@@ -107,20 +107,6 @@ public class ExerciseSceneController {
 
 	public void setCurrentProfile(Profile i) {
 		currentProfile = i;
-	}
-
-	public void setUnit(String unit) {
-		if (currentProfile.getUnit() == "Metric") {
-			bikingUnitField.setText("kilometers");
-			runningUnitField.setText("kilometers");
-			walkingUnitField.setText("kilometers");
-			swimmingUnitField.setText("laps");
-		} else {
-			bikingUnitField.setText("miles");
-			runningUnitField.setText("miles");
-			walkingUnitField.setText("miles");
-			swimmingUnitField.setText("laps");
-		}		
 	}
 
 }

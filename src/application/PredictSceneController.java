@@ -48,6 +48,10 @@ public class PredictSceneController {
 			e.printStackTrace();
 		}
     }
+    
+    private void predict() {
+    	
+    }
 
 	public void setCurrentProfile(Profile i) {
 		currentProfile = i;

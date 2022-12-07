@@ -67,7 +67,6 @@
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="Man" />
                      <String fx:value="Woman" />
-                     <String fx:value="Somewhere inbetween" />
                   </FXCollections>
                </items>
                <HBox.margin>

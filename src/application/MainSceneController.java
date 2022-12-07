@@ -52,7 +52,6 @@ public class MainSceneController {
     		ExerciseSceneController controller = (ExerciseSceneController)loader.getController();
     		controller.exerciseStage = exerciseStage;
     		controller.setCurrentProfile(currentProfile);
-    		controller.setUnit(currentProfile.getUnit());
     		Scene scene = new Scene(root,400,400);
     		
     		exerciseStage.setTitle("Fitness Friend: Exercises: " + currentProfile.getName());

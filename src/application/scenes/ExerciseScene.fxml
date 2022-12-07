@@ -30,7 +30,7 @@
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>
             </TextField>
-            <Label fx:id="walkingUnitField" text="NO_UNIT">
+            <Label fx:id="walkingUnitField" text="Minutes">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
@@ -49,7 +49,7 @@
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>
             </TextField>
-            <Label fx:id="runningUnitField" text="NO_UNIT">
+            <Label fx:id="runningUnitField" text="Minutes">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
@@ -68,7 +68,7 @@
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>
             </TextField>
-            <Label fx:id="bikingUnitField" text="NO_UNIT">
+            <Label fx:id="bikingUnitField" text="Minutes">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
@@ -87,7 +87,7 @@
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>
             </TextField>
-            <Label fx:id="swimmingUnitField" text="NO_UNIT">
+            <Label fx:id="swimmingUnitField" text="Laps">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
