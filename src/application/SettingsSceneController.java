@@ -50,6 +50,7 @@ public class SettingsSceneController {
     @FXML
     private ChoiceBox<String> settingsUnitInput;
 
+    //just return, don't do anything
     @FXML
     void returnWOSavingPressed(ActionEvent event) {
 		Stage mainStage = new Stage();
@@ -71,7 +72,8 @@ public class SettingsSceneController {
 			e.printStackTrace();
 		}
     }
-
+    
+    // save new age to age variable and save to file
     @FXML
     void saveAge(ActionEvent event) {
     	try {
@@ -82,6 +84,7 @@ public class SettingsSceneController {
 		}
     }
 
+    // save new gender to height variable and save to file
     @FXML
     void saveGender(ActionEvent event) {
     	currentProfile.setGender(settingsGenderInput.getValue());
@@ -92,6 +95,7 @@ public class SettingsSceneController {
 		}
     }
 
+    // save new height to height variable and save to file
     @FXML
     void saveHeight(ActionEvent event) {
     	try {
@@ -101,11 +105,12 @@ public class SettingsSceneController {
     		settingsSaveHeight.setText("Input a positive, real number");
 		}
     }
-
+    
+    // save new unit variable on current profile and change values in save files and history
     @FXML
     void saveUnit(ActionEvent event) throws IOException {
-    	// make sure it doesn't perform conversion if the unit is the same as selected
     	try {
+    		// don't convert if unit doesn't actually change
 	    	if (currentProfile.getUnit().equals(settingsUnitInput.getValue())) {
 	    		return;
 	    	} else {
@@ -169,6 +174,29 @@ public class SettingsSceneController {
 			    	}
 		    	}
 	    	}
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    }
+    
+    // take user to confirmation screen
+    @FXML
+    void deleteProfile(ActionEvent event) {
+    	Stage confirmStage = new Stage();
+    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		VBox root = loader.load(new FileInputStream("src/application/scenes/DeleteConfirmScene.fxml"));
+    		DeleteConfirmSceneController controller = (DeleteConfirmSceneController)loader.getController();
+    		controller.confirmStage = confirmStage;
+    		controller.setCurrentProfile(currentProfile);
+    		Scene scene = new Scene(root,225,105);
+    		
+    		confirmStage.setTitle("Confirm?");
+    		confirmStage.setResizable(false);
+    		confirmStage.setScene(scene);
+    		confirmStage.show();
+    		settingsStage.close();
     	} catch (Exception e) {
     		e.printStackTrace();
     	}

@@ -150,11 +150,13 @@ public class Profile {
 		pwriter.close();
 	}
 	
+	/**
+	 * Saves current profile to a separate history folder, ordered 1 through 8, with 1 being the newest and 8 being the oldest. Oldest deleted if more than 8 are added.
+	 * @throws IOException
+	 */
+	
 	public void toHistory() throws IOException {
-		// make history directory if it doesnt already exist
-		// copy current profile file to new directory and name it
-		// this has to be the worst way to do it
-		// birds keep dropping out of the sky as i type
+
 		File history1 = new File("src/application/history/" + this.name + "1.txt");
 		if (!history1.exists()) {
 			history1.createNewFile();

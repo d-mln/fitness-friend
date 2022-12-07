@@ -17,6 +17,12 @@ public class HistorySceneController {
 	protected Stage historyStage;
 	private Profile currentProfile;
     @FXML
+    private Label currentWeightLabel;
+    
+    @FXML
+    private Label unitLabel;
+	
+	@FXML
     private Button delHistory1;
 
     @FXML
@@ -91,202 +97,237 @@ public class HistorySceneController {
     @FXML
     private Button historyReturnButton;
 	
+    /*
+     * 
+     * Events for each button
+     * 
+     */
+    
     @FXML
     void deleteHistory1(ActionEvent event) throws IOException {
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 1;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate1.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 1;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
     }
 
     @FXML
     void deleteHistory2(ActionEvent event) throws IOException {
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 2;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate2.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 2;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
     }
 
     @FXML
     void deleteHistory3(ActionEvent event) throws IOException {
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 3;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate3.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 3;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
-    	
-
     }
 
     @FXML
     void deleteHistory4(ActionEvent event) throws IOException {
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 4;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate4.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 4;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
-    	
-
     }
 
     @FXML
     void deleteHistory5(ActionEvent event) throws IOException {
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 5;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate5.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 5;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
-    	
-
     }
 
     @FXML
     void deleteHistory6(ActionEvent event) throws IOException{
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 6;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate6.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 6;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
-    	
-
     }
 
     @FXML
     void deleteHistory7(ActionEvent event) throws IOException {
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 7;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate7.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 7;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
-    	
-
     }
 
     @FXML
     void deleteHistory8(ActionEvent event) {
-    	Stage confirmStage = new Stage();
-    	
-    	try {
-    		FXMLLoader loader = new FXMLLoader();
-    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
-    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
-    		controller.confirmStage = confirmStage;
-    		controller.setCurrentProfile(currentProfile);
-    		controller.buttonPressed = 8;
-    		Scene scene = new Scene(root,195,105);
-    		
-    		confirmStage.setTitle("Fitness Friend: Confirm? ");
-    		confirmStage.setResizable(false);
-    		confirmStage.setScene(scene);
-    		confirmStage.show();
-    		historyStage.close();
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	// only do anything if there actually is an entry
+    	if (!entryDate8.getText().equals("No history")) {
+	    	Stage confirmStage = new Stage();
+	    	
+	    	try {
+	    		FXMLLoader loader = new FXMLLoader();
+	    		VBox root = loader.load(new FileInputStream("src/application/scenes/HistoryConfirmScene.fxml"));
+	    		HistoryConfirmSceneController controller = (HistoryConfirmSceneController)loader.getController();
+	    		controller.confirmStage = confirmStage;
+	    		controller.setCurrentProfile(currentProfile);
+	    		controller.buttonPressed = 8;
+	    		Scene scene = new Scene(root,195,105);
+	    		
+	    		confirmStage.setTitle("Fitness Friend: Confirm? ");
+	    		confirmStage.setResizable(false);
+	    		confirmStage.setScene(scene);
+	    		confirmStage.show();
+	    		historyStage.close();
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+    	} else {
+    		return;
     	}
-    	
-
     }
     
+    // do nothing, just return to main scene
     @FXML
     void returnPressed(ActionEvent event) {
 		Stage mainStage = new Stage();
@@ -309,13 +350,23 @@ public class HistorySceneController {
 		}
     }
 
-
+    // maintain current profile between scenes
 	public void setCurrentProfile(Profile i) {
 		currentProfile = i;
 	}
 	
+	// Sets all labels and buttons to their correct values when loading the scene
 	@SuppressWarnings("deprecation")
 	public void setHistoryObjects() throws IOException {
+		// set current weight + unit
+		currentWeightLabel.setText(Double.toString(currentProfile.getWeight()));
+		if (currentProfile.getUnit().equals("Metric")) {
+			unitLabel.setText("kilograms");
+		} else {
+			unitLabel.setText("pounds");
+		}
+		
+		
 		// entry 1
 		if (!currentProfile.getHistoryDate(1).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(1)));
@@ -328,6 +379,7 @@ public class HistorySceneController {
 		} else {
 			return;
 		}
+		
 		// entry 2
 		if (!currentProfile.getHistoryDate(2).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(2)));
@@ -340,6 +392,7 @@ public class HistorySceneController {
 		} else {
 			return;
 		}
+		
 		// entry 3
 		if (!currentProfile.getHistoryDate(3).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(3)));
@@ -352,6 +405,7 @@ public class HistorySceneController {
 		} else {
 			return;
 		}
+		
 		// entry 4
 		if (!currentProfile.getHistoryDate(4).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(4)));
@@ -364,6 +418,7 @@ public class HistorySceneController {
 		} else {
 			return;
 		}
+		
 		// entry 5
 		if (!currentProfile.getHistoryDate(5).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(5)));
@@ -376,6 +431,7 @@ public class HistorySceneController {
 		} else {
 			return;
 		}
+		
 		// entry 6
 		if (!currentProfile.getHistoryDate(6).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(6)));
@@ -388,6 +444,7 @@ public class HistorySceneController {
 		} else {
 			return;
 		}
+		
 		// entry 7
 		if (!currentProfile.getHistoryDate(7).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(7)));
@@ -400,6 +457,7 @@ public class HistorySceneController {
 		} else {
 			return;
 		}
+		
 		// entry 8
 		if (!currentProfile.getHistoryDate(8).equals("NONE")) {
 			Date historyDate = new Date(Long.parseLong(currentProfile.getHistoryDate(8)));
