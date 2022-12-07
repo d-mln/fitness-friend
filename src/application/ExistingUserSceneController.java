@@ -33,7 +33,6 @@ public class ExistingUserSceneController {
 		// load profile selected
     	currentProfile = new Profile(accountChoiceBox.getValue());
     	Date now = new Date();
-    	System.out.println(now);
     	currentProfile.setDate(now);
     	
     	Stage mainStage = new Stage();

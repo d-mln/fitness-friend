@@ -1,6 +1,7 @@
 package application;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -73,7 +74,7 @@ public class MainSceneController {
     		HistorySceneController controller = (HistorySceneController)loader.getController();
     		controller.historyStage = historyStage;
     		controller.setCurrentProfile(currentProfile);
-    		Scene scene = new Scene(root,400,400);
+    		Scene scene = new Scene(root,450,400);
     		
     		historyStage.setTitle("Fitness Friend: History: " + currentProfile.getName());
     		historyStage.setResizable(false);

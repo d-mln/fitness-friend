@@ -92,7 +92,7 @@ public class Profile {
 	}
 	
 	private void saveHistory(File i) throws IOException {
-		BufferedReader reader = new BufferedReader(new FileReader("src/application/profiles/" + name + ".txt"));
+		BufferedReader reader = new BufferedReader(new FileReader("src/application/profiles/" + this.name + ".txt"));
 		BufferedWriter writer = new BufferedWriter(new FileWriter(i));
 		PrintWriter pwriter = new PrintWriter(writer);
 		reader.readLine();
@@ -163,8 +163,53 @@ public class Profile {
 			}
 		}
 	}
-
-
+	
+	/**
+	 * Gets the date from a history file, 8 is youngest and 1 is oldest
+	 * @param i recency of file as an int
+	 * @return when that history file was logged into last as a Date
+	 * @throws IOException
+	 */
+	public Date getHistoryDate(int i) throws IOException {
+		File check = new File("src/application/history/");
+		int count = i;
+		while (count > 0) {
+			check = new File("src/application/history/" + this.name + count + ".txt");
+			if (check.exists()) {
+				BufferedReader reader = new BufferedReader(new FileReader(check));
+				reader.readLine();
+				Date output = new Date(Long.parseLong(reader.readLine()));
+				reader.close();
+				return output;
+			} else {
+				count--;
+			}
+		}
+		return null;
+	}
+	/**
+	 * Gets the weight from a history file, 8 is youngest and 1 is oldest
+	 * @param i recency of the file as int
+	 * @return Weight in that history file as an int
+	 * @throws IOException
+	 */
+	public double getHistoryWeight(int i) throws IOException {
+		File check = new File("src/application/history/");
+		int count = i;
+		while (count > 0) {
+			check = new File("src/application/history/" + this.name + count + ".txt");
+			if (check.exists()) {
+				BufferedReader reader = new BufferedReader(new FileReader(check));
+				double output = Double.parseDouble(reader.readLine());
+				reader.close();
+				return output;
+			} else {
+				count--;
+			}
+		}
+		return 0;
+	}
+	
 	public String getName() {
 		return name;
 	}
