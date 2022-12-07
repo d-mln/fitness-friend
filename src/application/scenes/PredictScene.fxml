@@ -3,43 +3,146 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PredictSceneController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PredictSceneController">
    <children>
       <HBox prefHeight="38.0" prefWidth="600.0">
          <children>
-            <Label text="I plan on eating">
+            <Label prefHeight="17.0" prefWidth="87.0" text="I currently burn">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <TextField prefHeight="25.0" prefWidth="96.0">
+            <Label fx:id="caloriesBurned" text="NO_TDEE">
                <HBox.margin>
-                  <Insets left="10.0" top="6.0" />
+                  <Insets top="10.0" />
                </HBox.margin>
-            </TextField>
+            </Label>
             <Label text="calories per day">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="predictCalculateButton" mnemonicParsing="false" onAction="#calculatePressed" text="Calculate">
-               <HBox.margin>
-                  <Insets left="10.0" top="6.0" />
-               </HBox.margin>
-            </Button>
          </children>
       </HBox>
-      <HBox prefHeight="572.0" prefWidth="600.0">
+      <HBox prefHeight="55.0" prefWidth="600.0">
          <children>
-            <Label text="I still need to figure out how this scene will work" />
+            <Label text="To lose 1">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin></Label>
+            <Label fx:id="fullLossUnitLabel" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="per week, I should eat">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="fullLossCalories" text="NO_FULL_LOSS_CAL">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="calories per day">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="55.0" prefWidth="600.0">
+         <children>
+            <Label text="To lose 0.5">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="halfLossUnitLabel" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="per week, I should eat">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="halfLossCalories" text="NO_HALF_LOSS_CAL">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="calories per day">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="55.0" prefWidth="600.0">
+         <children>
+            <Label text="To gain 1">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="fullGainUnitLabel" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="per week, I should eat">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="fullGainCalories" text="NO_FULL_GAIN_CAL">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="calories per day">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="55.0" prefWidth="600.0">
+         <children>
+            <Label text="To gain 0.5">
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="halfGainUnitLabel" text="NO_UNIT">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="per week, I should eat">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="halfGainCalories" text="NO_HALF_GAIN_CAL">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="calories per day">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="44.0" prefWidth="600.0">
          <children>
             <Button fx:id="predictReturnButton" mnemonicParsing="false" onAction="#returnPressed" text="Return">
                <HBox.margin>
@@ -48,5 +151,15 @@
             </Button>
          </children>
       </HBox>
+      <Label prefHeight="22.0" prefWidth="590.0" text="Please note, calculations are based off averages, this may not be accurate to you and you should">
+         <VBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label text="adjust your diet based on your own results. Use only as a starting guideline!">
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </Label>
    </children>
 </VBox>

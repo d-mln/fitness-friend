@@ -62,7 +62,7 @@ public class ExerciseSceneController {
 			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
-			mainStage.setTitle("Fitness Friend");
+			mainStage.setTitle("Fitness Friend: " + currentProfile.getName());
 			mainStage.setResizable(false);
 			mainStage.setScene(scene);
 			mainStage.show();
@@ -79,7 +79,42 @@ public class ExerciseSceneController {
 		currentProfile.setWalking(Integer.parseInt(exerciseWalkingField.getText()));
 		currentProfile.setWorkout(Integer.parseInt(exerciseWorkingOutField.getText()));
 		currentProfile.setSwimming(Integer.parseInt(exerciseSwimmingField.getText()));
-    	try {
+    	currentProfile.setExercise(0);
+		
+    	
+    	// determine a relative amount of exercise done
+		// https://www.rusticaly.com/how-much-walking-to-lose-weight-chart/
+		
+		for (int walkingCounter = currentProfile.getWalking(); walkingCounter > 0 ; walkingCounter -= 200) {
+			currentProfile.setExercise((currentProfile.getExercise() + 1));
+			System.out.println(walkingCounter);
+		}
+		
+		// https://www.webmd.com/fitness-exercise/running-to-lose-weight
+		
+		for (int runningCounter = currentProfile.getRunning(); runningCounter > 0; runningCounter -= 60) {
+			currentProfile.setExercise(currentProfile.getExercise() + 1);
+		}
+		
+		// https://www.healthline.com/health/how-many-calories-do-you-burn-biking#indoor-biking
+		
+		for (int bikingCounter = currentProfile.getBiking(); bikingCounter > 0; bikingCounter -= 100) {
+			currentProfile.setExercise(currentProfile.getExercise() + 1);
+		}
+		
+		// https://www.healthline.com/health/fitness-exercise/how-many-calories-do-you-burn-swimming
+		
+		for (int swimmingCounter = currentProfile.getSwimming(); swimmingCounter > 0; swimmingCounter -= 60) {
+			currentProfile.setExercise(currentProfile.getExercise() + 1);
+		}
+		
+		//  https://www.byrdie.com/how-many-calories-should-you-burn-in-a-workout-5093459
+		
+		for (int workoutCounter = currentProfile.getWorkout(); workoutCounter > 0; workoutCounter -= 100) {
+			currentProfile.setExercise(currentProfile.getExercise() + 1);
+		}
+		
+		try {
 			currentProfile.saveProfile();
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -95,7 +130,7 @@ public class ExerciseSceneController {
 			controller.setLabels(currentProfile.getUnit());
 			Scene scene = new Scene(root,600,180);
 			
-			mainStage.setTitle("Fitness Friend");
+			mainStage.setTitle("Fitness Friend: " + currentProfile.getName());
 			mainStage.setResizable(false);
 			mainStage.setScene(scene);
 			mainStage.show();
@@ -107,6 +142,11 @@ public class ExerciseSceneController {
 
 	public void setCurrentProfile(Profile i) {
 		currentProfile = i;
+		exerciseBikingField.setText(Integer.toString(currentProfile.getBiking()));
+		exerciseRunningField.setText(Integer.toString(currentProfile.getRunning()));
+		exerciseWalkingField.setText(Integer.toString(currentProfile.getWalking()));
+		exerciseWorkingOutField.setText(Integer.toString(currentProfile.getWorkout()));
+		exerciseSwimmingField.setText(Integer.toString(currentProfile.getSwimming()));
 	}
 
 }

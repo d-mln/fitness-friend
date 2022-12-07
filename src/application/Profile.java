@@ -23,6 +23,8 @@ public class Profile {
 	private int biking = 0;
 	private int swimming = 0;
 	private int workout = 0;
+	// relative amount of exercise per week, determined by exercisescenecontroller
+	private int exercise = 0;
 	
 	// if profile already exists, load, else create a new profile
 	public Profile(String i) {
@@ -64,6 +66,7 @@ public class Profile {
 		pwriter.println(biking);
 		pwriter.println(swimming);
 		pwriter.println(workout);
+		pwriter.println(exercise);
 
 		pwriter.close();
 	}
@@ -83,6 +86,7 @@ public class Profile {
 		biking = Integer.parseInt(reader.readLine());
 		swimming = Integer.parseInt(reader.readLine());
 		workout = Integer.parseInt(reader.readLine());
+		exercise = Integer.parseInt(reader.readLine());
 		
 		reader.close();
 	}
@@ -143,7 +147,7 @@ public class Profile {
 		this.date = i;
 	}
 
-	public double getWalking() {
+	public int getWalking() {
 		return walking;
 	}
 
@@ -151,7 +155,7 @@ public class Profile {
 		this.walking = walking;
 	}
 
-	public double getRunning() {
+	public int getRunning() {
 		return running;
 	}
 
@@ -159,7 +163,7 @@ public class Profile {
 		this.running = running;
 	}
 
-	public double getBiking() {
+	public int getBiking() {
 		return biking;
 	}
 
@@ -167,7 +171,7 @@ public class Profile {
 		this.biking = biking;
 	}
 
-	public double getSwimming() {
+	public int getSwimming() {
 		return swimming;
 	}
 
@@ -175,7 +179,7 @@ public class Profile {
 		this.swimming = swimming;
 	}
 
-	public double getWorkout() {
+	public int getWorkout() {
 		return workout;
 	}
 
@@ -183,16 +187,19 @@ public class Profile {
 		this.workout = workout;
 	}
 	
-	// formula found here https://www.gigacalculator.com/calculators/tdee-calculator.php
-	public void getTDEE(Profile i) {
-		
-		// true = metric, false
-		boolean u = true;
-		if (unit.equals("Metric")) {
-			u = true;
-		} else {
-			u = false;
+	public int getExercise() {
+		return exercise;
+	}
+
+	public void setExercise(int exercise) {
+		this.exercise = exercise;
+		if (this.exercise > 5) {
+			exercise = 5;
 		}
+	}
+
+	// formula found here https://www.gigacalculator.com/calculators/tdee-calculator.php
+	public int getTDEE() {
 		
 		// gender constant (see formula source)
 		int g;
@@ -201,11 +208,39 @@ public class Profile {
 		} else {
 			g = -161;
 		}
-		System.out.print(g);
 		
+		// formula for imperial and metric
+		double bmr = 0;
+		if(unit.equals("Metric")) {
+			bmr = (10 * weight) + (6.25 * height) + (5 * age) + g;
+		} else {
+			bmr = (4.5359 * weight) + (15.875 * height) + (5 * age) + g;
+		}
 		
-		double bmr = (10 * weight) + (6.25 * height) + (5 * age) + g;
-		
+		// multiply bmr depending on exercise class
+		double TDEE = 0;
+		if (exercise <= 1) {
+			TDEE = bmr * 1.035;
+		} else if (exercise == 2) {
+			TDEE = bmr * 1.07;
+		} else if (exercise == 3) {
+			TDEE = bmr * 1.12;
+		} else if (exercise == 4) {
+			TDEE = bmr * 1.23;
+		} else if (exercise == 5) {
+			TDEE = bmr * 1.31;
+		} else if (exercise == 6) {
+			TDEE = bmr * 1.39;
+		} else if (exercise == 7) {
+			TDEE = bmr * 1.47;
+		} else if (exercise == 8) {
+			TDEE = bmr * 1.54;
+		} else if (exercise == 9) {
+			TDEE = bmr * 1.63;
+		} else if (exercise == 10) {
+			TDEE = bmr * 1.70;
+		}
+		return (int) TDEE;
 		
 	}
 }

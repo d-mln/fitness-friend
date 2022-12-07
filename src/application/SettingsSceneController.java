@@ -102,7 +102,7 @@ public class SettingsSceneController {
     		return;
     	} else {
 	    	currentProfile.setUnit(settingsUnitInput.getValue());
-	    	if (currentProfile.getUnit() == "Metric") {
+	    	if (currentProfile.getUnit().equals("Metric")) {
 		    	currentProfile.setHeight(currentProfile.getHeight() * 2.54);
 		    	currentProfile.setWeight(currentProfile.getWeight() * 0.45359);
 	    	} else {

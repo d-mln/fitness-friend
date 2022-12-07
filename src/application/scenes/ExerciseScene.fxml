@@ -87,7 +87,7 @@
                   <Insets left="10.0" top="6.0" />
                </HBox.margin>
             </TextField>
-            <Label fx:id="swimmingUnitField" text="Laps">
+            <Label fx:id="swimmingUnitField" text="Minutes">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>
@@ -96,7 +96,7 @@
       </HBox>
       <HBox prefHeight="38.0" prefWidth="600.0">
          <children>
-            <Label minHeight="17.0" minWidth="71.0" prefHeight="17.0" prefWidth="72.0" text="Working out">
+            <Label minHeight="17.0" minWidth="71.0" prefHeight="17.0" prefWidth="72.0" text="Weightlifting">
                <HBox.margin>
                   <Insets left="10.0" top="10.0" />
                </HBox.margin>

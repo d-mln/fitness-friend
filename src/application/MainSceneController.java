@@ -94,7 +94,9 @@ public class MainSceneController {
     		PredictSceneController controller = (PredictSceneController)loader.getController();
     		controller.predictStage = predictStage;
     		controller.setCurrentProfile(currentProfile);
-    		Scene scene = new Scene(root,400,400);
+    		controller.setUnit(currentProfile.getUnit());
+    		controller.predict();
+    		Scene scene = new Scene(root,550,400);
     		
     		predictStage.setTitle("Fitness Friend: Prediction: " + currentProfile.getName());
     		predictStage.setResizable(false);
